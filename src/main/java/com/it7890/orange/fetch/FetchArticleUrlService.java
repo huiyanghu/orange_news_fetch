@@ -29,7 +29,7 @@ import com.cki.spider.pro.SpiderUrlListener;
 import com.cki.spider.pro.util.NamedThreadFactory;
 
 @Component
-public class FetchService {
+public class FetchArticleUrlService {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -48,10 +48,9 @@ public class FetchService {
 	Semaphore limit;
 	AtomicLong atomicSum;
 	
-	public FetchService() {
+	public FetchArticleUrlService() {
 		this.searchExecutor = Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory("searchExecutor"));
 		atomicSum = new AtomicLong(0);
-		logger.debug("FetchServiceFetchServiceFetchServiceFetchServiceFetchServiceFetchServiceFetchServiceFetchServiceFetchServiceFetchService>>>>>>>>>>>>>");
 	}
 
 	@PostConstruct
@@ -76,8 +75,8 @@ public class FetchService {
 		grabListRulInfo.setConstant("utf-8");
 		grabListRulInfo.setGrabTime(600);
 		grabListRulInfo.setSiteUrl("www.esquire.tw/category/food-drink/"); //源url
-		grabListRulInfo.setCssPath(""); //目标区域规则
-		grabListRulInfo.setFindPre(""); //目标文章url规则
+		grabListRulInfo.setCssPath("div[role=main]"); //目标区域规则
+		grabListRulInfo.setFindPre("div.cb-mask > a"); //目标文章url规则
 
 		List<GrabListRule> grabListRules = new ArrayList();
 		grabListRules.add(grabListRulInfo);
@@ -149,13 +148,15 @@ public class FetchService {
 
 				Document doc = Jsoup.parse(body);
 //				Elements contentElements = doc.select("div#main.clearfix");
-				Elements contentElements = doc.select("div[role=main]");
+				Elements contentElements = doc.select(grabListRulInfo.getCssPath());
 				logger.debug("content element size: {}", contentElements.size());
 
 				if (contentElements.size() > 0) {
-					Elements articleElements = contentElements.get(0).select("article[role=article]");
-					for(Element articleElement : articleElements) {
-						logger.info("A href =======>>>>{}", articleElement.select("a[href~=/[\\s|\\S]*"));
+					Elements articleElements = contentElements.get(0).select(grabListRulInfo.getFindPre());
+
+					for (Element articleElement : articleElements) {
+						String article_href = articleElement.attr("href");
+
 					}
 				}
 				
