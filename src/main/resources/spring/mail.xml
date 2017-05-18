@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+	default-autowire="byName" default-lazy-init="true">
+	
+	<bean id="templateEngine" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="templateLoaderPath" value="classpath:template/"/>
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">0</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="locale">en_US</prop>
+            </props>
+        </property>
+    </bean>
+	
+	<!-- 使用Spring封装的Mail Sender -->
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host}" />		
+		<property name="username" value="${mail.username}" />
+		<property name="password" value="${mail.password}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+				<prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+				<prop key="mail.smtp.port">${mail.smtp.port}</prop>
+				<prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</prop>
+			</props>
+		</property>
+	</bean>
+
+    <bean id="mailService" class="com.it7890.orange.common.mail.DefaultMailService">
+        <property name="from" value="${mail.username}"/>
+        <property name="mailTemplateEngine" ref="templateEngine"/>
+    </bean>
+</beans>

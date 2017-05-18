@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxTotal" value="${redis.pool.maxTotal}"/>
+	 	<property name="maxIdle" value="${redis.pool.maxIdle}"/>
+	 	<property name="minIdle" value="${redis.pool.minIdle}"/>
+	 	<property name="maxWaitMillis" value="${redis.pool.maxWaitMillis}"/>
+	 	<property name="testOnBorrow" value="${redis.pool.testOnBorrow}"/>
+	 	<property name="testOnReturn" value="${redis.pool.testOnReturn}"/>
+	 	<property name="testWhileIdle" value="${redis.pool.testWhileIdle}"/>
+	</bean>
+	
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool" destroy-method="destroy">
+		<constructor-arg index="0" ref="jedisPoolConfig"/>
+		<constructor-arg index="1" value="${redis.ip}"/>
+		<constructor-arg index="2" value="${redis.port}" type="int" />
+		<constructor-arg index="3" value="${redis.timeout}" type="int" />
+	</bean>
+	
+	<bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool" destroy-method="destroy">
+		<constructor-arg index="0" ref="jedisPoolConfig" />
+		<constructor-arg index="1">
+			<list>
+				<bean class="redis.clients.jedis.JedisShardInfo">
+					<constructor-arg index="0" value="${redis.ip}" />
+					<constructor-arg index="1" value="${redis.port}" type="int" />
+				</bean>
+				<!-- 可以设置足够多的instance，数据扩容的时候，只需要将几个instance的数据copy到别的机器上。然后修改配置文件的ip和端口即可 -->
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="jedisUtil" class="com.it7890.orange.util.JedisUtil">
+		<!-- 非切片连接池 -->
+		<property name="jedisPool" ref="jedisPool"></property>
+		<!-- 切片连接池 -->
+		<property name="shardedJedisPool" ref="shardedJedisPool"></property>
+	</bean>
+</beans>

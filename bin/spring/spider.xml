@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+	<bean id="spider" class="com.cki.spider.pro.DefaultSpider"
+		init-method="init">
+		<constructor-arg index="0">
+			<bean class="com.cki.spider.pro.SpiderConfig">
+				<constructor-arg index="0">
+					<value>320</value>
+				</constructor-arg>
+				<property name="connectionTimeoutInMillis" value="40000" />
+				<property name="maxExecutionTimeout" value="60000" />
+				<property name="maxConnectionsPerHost" value="1" />
+				<property name="maxHostContext" value="5000" />
+				<property name="maxQueuedRequests" value="1000" />
+				<property name="maxIoWorkerThreads" value="6" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>640</value>
+		</constructor-arg>
+	</bean>
+
+
+</beans>

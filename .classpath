@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/spider-pro/java"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="src" path="src/test/resources"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/activemq-core-5.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/bloom-filter-4.0-cki.jar"/>
+	<classpathentry kind="lib" path="lib/cglib-nodep-2.2.jar" sourcepath="d:/maven/repository/cglib/cglib-nodep/2.2/cglib-nodep-2.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/chardet-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbcp-1.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-httpclient-ext-2.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar" sourcepath="d:/maven/repository/commons-lang/commons-lang/2.4/commons-lang-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-api-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/cpdet-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/cpdetector_1.0.8.jar"/>
+	<classpathentry kind="lib" path="lib/cxf-2.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/cxf-manifest.jar"/>
+	<classpathentry kind="lib" path="lib/cxf-xjc-boolean-2.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/cxf-xjc-bug671-2.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/cxf-xjc-dv-2.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/cxf-xjc-ts-2.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/dust-1.0-cki.jar"/>
+	<classpathentry kind="lib" path="lib/ehcache-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/ejb3-persistence-1.0.2.GA.jar"/>
+	<classpathentry kind="lib" path="lib/freemarker-2.3.15.jar"/>
+	<classpathentry kind="lib" path="lib/gate.jar"/>
+	<classpathentry kind="lib" path="lib/geronimo-j2ee-management_1.0_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/geronimo-jms_1.1_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/google-collect-1.0-rc2.jar"/>
+	<classpathentry kind="lib" path="lib/google-collections-1.0-rc5.jar"/>
+	<classpathentry kind="lib" path="lib/guice-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-core-0.20.1.jar"/>
+	<classpathentry kind="lib" path="lib/hamcrest-all-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-annotations-3.4.0.GA.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-commons-annotations-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-core-3.3.2.GA.jar" sourcepath="d:/maven/repository/org/hibernate/hibernate-core/3.3.2.GA/hibernate-core-3.3.2.GA-sources.jar"/>
+	<classpathentry kind="lib" path="lib/ibatis-2.3.0.677.jar"/>
+	<classpathentry kind="lib" path="lib/icu4j-4.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/jasper-compiler-jdt.jar"/>
+	<classpathentry kind="lib" path="lib/javassist-3.8.0.GA.jar"/>
+	<classpathentry kind="lib" path="lib/jdom-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-6.1.19.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-util-6.1.19.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/keyword-analyzer.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-over-slf4j-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/logback-classic-0.9.17.jar"/>
+	<classpathentry kind="lib" path="lib/logback-core-0.9.17.jar" sourcepath="d:/maven/repository/ch/qos/logback/logback-core/0.9.17/logback-core-0.9.17-sources.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-common-1.0-cki.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core-2.9.2.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-queries-2.9.2.jar"/>
+	<classpathentry kind="lib" path="lib/mahout-core-0.2.jar"/>
+	<classpathentry kind="lib" path="lib/mail-1.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/memcached-client-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/neethi-3.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/nekohtml-1.9.12.jar"/>
+	<classpathentry kind="lib" path="lib/netty-3.2.3.Final.jar" sourcepath="d:/maven/repository/org/jboss/netty/netty/3.2.3.Final/netty-3.2.3.Final-sources.jar"/>
+	<classpathentry kind="lib" path="lib/nlp-1.0-cki.jar"/>
+	<classpathentry kind="lib" path="lib/ontotext.jar"/>
+	<classpathentry kind="lib" path="lib/oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="lib/paoding-2.0.4.jar"/>
+	<classpathentry kind="lib" path="lib/pdfbox-app-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/perf4j-0.9.12.jar"/>
+	<classpathentry kind="lib" path="lib/protobuf-java-2.3.0.jar"/>
+	<classpathentry kind="lib" path="lib/quartz-1.6.4.jar"/>
+	<classpathentry kind="lib" path="lib/rapidminer-4.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/rome-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/servlet-api-2.5-20081211.jar"/>
+	<classpathentry kind="lib" path="lib/simmetrics-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/solr-solrj-1.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aop-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-asm-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-beans-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-3.0.1.RELEASE.jar" sourcepath="d:/maven/repository/org/springframework/spring-context/3.0.1.RELEASE/spring-context-3.0.1.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="lib/spring-context-support-3.0.1.RELEASE.jar" sourcepath="d:/maven/repository/org/springframework/spring-context-support/3.0.1.RELEASE/spring-context-support-3.0.1.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-3.0.1.RELEASE.jar" sourcepath="d:/maven/repository/org/springframework/spring-core/3.0.1.RELEASE/spring-core-3.0.1.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="lib/spring-expression-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-jdbc-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-orm-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-tx-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-web-3.0.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/storage-client-1.0-cki.jar"/>
+	<classpathentry kind="lib" path="lib/syntax-analyzer-4.0-cki.jar"/>
+	<classpathentry kind="lib" path="lib/unitils-core-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/unitils-database-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/unitils-dbmaintainer-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/unitils-dbunit-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/unitils-easymock-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/unitils-inject-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/unitils-spring-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/voldemort-0.57.jar"/>
+	<classpathentry kind="lib" path="lib/weka-3.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/wsdl4j-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/wvtool-1.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/xercesImpl-2.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/xmlschema-core-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjrt-1.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/aspectjweaver-1.8.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/jedis-2.6.1.jar" sourcepath="d:/maven/repository/redis/clients/jedis/2.6.1/jedis-2.6.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/spring-data-redis-1.4.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/commons-pool2-2.2.jar" sourcepath="d:/maven/repository/org/apache/commons/commons-pool2/2.2/commons-pool2-2.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.4.4.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.4.4.jar" sourcepath="d:/maven/repository/com/fasterxml/jackson/core/jackson-databind/2.4.4/jackson-databind-2.4.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/qiniu-java-sdk-6.1.7.1.jar" sourcepath="d:/maven/repository/com/qiniu/qiniu-java-sdk/6.1.7.1/qiniu-java-sdk-6.1.7.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.7.jar" sourcepath="d:/maven/repository/junit/junit/4.7/junit-4.7-sources.jar"/>
+	<classpathentry kind="lib" path="lib/org.json-chargebee-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.2.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.2.jar"/>
+	<classpathentry kind="lib" path="lib/httpmime-4.2.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.33.jar"/>
+	<classpathentry kind="lib" path="lib/jsoup-1.8.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

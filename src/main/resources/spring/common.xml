@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+	<context:component-scan base-package="com.it7890" />
+	<context:component-scan base-package="com.cki" />
+	<context:component-scan base-package="org.springside" />
+
+	<!--开启定时器 -->
+	<!--<task:executor id="executor" pool-size="5" />  -->
+    <!--<task:scheduler id="scheduler" pool-size="10" />  -->
+    <!--<task:annotation-driven executor="executor" scheduler="scheduler" />-->
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:/orange_api.properties</value>
+			</list>
+		</property>
+		<property name="fileEncoding" value="utf-8" />
+	</bean>
+	
+	<bean id="ehCacheManager"
+          class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:ehcache.xml"/>
+    </bean>
+    
+    <bean id="toupaiCache"
+          class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="ehCacheManager"/>
+        <property name="cacheName" value="toupaiStore"/>
+    </bean>
+    
+    <!-- 这个bean主要是为了得到ApplicationContext 所以它不需要其它属性 -->
+	<bean class="com.it7890.orange.util.SpringUtil" />
+</beans>
