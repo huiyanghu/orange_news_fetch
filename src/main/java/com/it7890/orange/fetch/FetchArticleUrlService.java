@@ -156,7 +156,7 @@ public class FetchArticleUrlService {
 
 					for (Element articleElement : articleElements) {
 						String article_href = articleElement.attr("href");
-
+						logger.info("element ===============>>>>>>{}", article_href);
 					}
 				}
 				
