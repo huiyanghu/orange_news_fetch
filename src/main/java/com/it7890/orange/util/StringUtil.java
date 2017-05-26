@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -984,5 +985,50 @@ public class StringUtil extends StringUtils {
 		} else {
 			return defaultValue;
 		}
+	}
+
+	public static String urlEncode(String originTitleImageUrl) {
+		if (StringUtil.isNotEmpty(originTitleImageUrl)) {
+			String resourceName = originTitleImageUrl.substring(originTitleImageUrl.lastIndexOf('/')+1, originTitleImageUrl.lastIndexOf('.'));
+			try {
+				if (!isUtf8Url(resourceName)) {
+					String newResourceName = URLEncoder.encode(resourceName, "UTF-8");
+					originTitleImageUrl = originTitleImageUrl.replace(resourceName, newResourceName);
+				}
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		return originTitleImageUrl;
+	}
+
+	/**
+	 * 编码是否有效
+	 * @param text
+	 * @return
+	 */
+	public static boolean Utf8codeCheck(String text){
+		String sign = "";
+		if (text.startsWith("%e"))
+			for (int i = 0, p = 0; p != -1; i++) {
+				p = text.indexOf("%", p);
+				if (p != -1)
+					p++;
+				sign += p;
+			}
+		return sign.equals("147-1");
+	}
+	/**
+	 * 判断是否Utf8Url编码
+	 * @param text
+	 * @return
+	 */
+	public static boolean isUtf8Url(String text) {
+		text = text.toLowerCase();
+		int p = text.indexOf("%");
+		if (p != -1 && text.length() - p > 9) {
+			text = text.substring(p, p + 9);
+		}
+		return Utf8codeCheck(text);
 	}
 }

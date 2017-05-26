@@ -7,17 +7,21 @@ public class GrabListRule {
 
 	private String objectId;
 	private String pId;
-	private String ruleName;    //规则名称
+	private String ruleName;     //规则名称
+	private String publicationId;//媒体id
 	private String nodeId;      //节点id
 	private String channelId;   //渠道id
 	private String cssPath;     //目标区域规则
-	private String siteUrl;         //源url
+	private String siteUrl;     //源url
 	private String countryCode; //国家编码
 	private String langId;      //语言id
-	private String topicId;       //话题id
+	private String topicId;     //话题id
 	private String findPre;     //目标文章url规则
 	private String constant;    //编码
-	private int grabTime;    //抓取周期秒
+	private String keywords;    //关键字
+	private String titlePicCssPath;//标题图片规则
+	private String nextPageCssPath;//下一页规则
+	private int grabTime;       //抓取周期秒
 
 	public String getObjectId() {
 		return objectId;
@@ -121,5 +125,37 @@ public class GrabListRule {
 
 	public void setConstant(String constant) {
 		this.constant = constant;
+	}
+
+	public String getPublicationId() {
+		return publicationId;
+	}
+
+	public void setPublicationId(String publicationId) {
+		this.publicationId = publicationId;
+	}
+
+	public String getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
+
+	public String getTitlePicCssPath() {
+		return titlePicCssPath;
+	}
+
+	public void setTitlePicCssPath(String titlePicCssPath) {
+		this.titlePicCssPath = titlePicCssPath;
+	}
+
+	public String getNextPageCssPath() {
+		return nextPageCssPath;
+	}
+
+	public void setNextPageCssPath(String nextPageCssPath) {
+		this.nextPageCssPath = nextPageCssPath;
 	}
 }
