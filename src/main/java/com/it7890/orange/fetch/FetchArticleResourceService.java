@@ -75,14 +75,14 @@ public class FetchArticleResourceService {
 						List<String> originTitleImageUrls = fetchArticleInfo.getOriginTitleImageUrls();
 						List<String> originContentImageUrls = fetchArticleInfo.getOriginContentImageUrls();
 						if (null != originTitleImageUrls && originTitleImageUrls.size() > 0) {
-							logger.debug("待抓取的文章标题图片>>>: {}", originTitleImageUrls);
+							logger.debug("准备抓取文章标题图片>>>: {}", originTitleImageUrls);
 
 							String originTitleImageUrl = originTitleImageUrls.remove(0);
 							if (StringUtil.isNotEmpty(originTitleImageUrl)) {
 								urlSearch(fetchArticleInfo, originTitleImageUrl, 1);
 							}
 						} else if (null != originContentImageUrls && originContentImageUrls.size() > 0) {
-							logger.debug("待抓取的文章内容图片：{}", originContentImageUrls);
+							logger.debug("准备抓取文章内容图片>>>：{}", originContentImageUrls);
 
 							String originContentImageUrl = originContentImageUrls.remove(0);
 							if (StringUtil.isNotEmpty(originContentImageUrl)) {
