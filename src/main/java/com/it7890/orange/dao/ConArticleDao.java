@@ -9,8 +9,8 @@ import com.it7890.orange.entity.FetchArticle;
 import com.it7890.orange.entity.GrabDetailRule;
 import com.it7890.orange.entity.GrabListRule;
 import com.it7890.orange.util.StringUtil;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -18,7 +18,7 @@ import java.util.Date;
 @Repository
 public class ConArticleDao {
 
-	private final static Logger logger = LogManager.getLogger(ConArticleDao.class);
+	private final static Logger logger = LoggerFactory.getLogger(ConArticleDao.class);
 
 	/**
 	 * 保存文章属性
@@ -42,14 +42,12 @@ public class ConArticleDao {
 			GrabListRule grabListRule = fetchArticle.getGrabListRule();
 			GrabDetailRule grabDetailRule = fetchArticle.getGrabDetailRuleInfo();
 
-//			ConArticle articleInfo = new ConArticle();
 			AVObject articleInfo = new AVObject("conarticle");
 			articleInfo.put("grabListRuleObj", grabListRule);
 			articleInfo.put("grabDetailRuleObj", grabDetailRule);
 			articleInfo.put("countrycode", grabListRule.getCountryCode());
-			articleInfo.put("langid", grabListRule.getLangId());
+			articleInfo.put("langid", grabListRule.getLanguageId());
 			articleInfo.put("salt", fetchArticle.getUrlSalt());
-//			articleInfo.put("linkurl", fetchArticle.getSourceUrl());
 			articleInfo.put("imgcount", imgCount);
 			articleInfo.put("keywords", keywords);
 			articleInfo.put("latitude", latitude);

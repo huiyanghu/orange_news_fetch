@@ -13,17 +13,18 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
 
-import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JsonUtils {
 
-	public static Logger log = Logger.getLogger(JsonUtils.class); // 日志
+	public final static Logger log = LoggerFactory.getLogger(JsonUtils.class); // 日志
 
 	public static void mapToXml() {
 	}

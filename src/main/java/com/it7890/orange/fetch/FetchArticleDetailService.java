@@ -9,7 +9,6 @@ import com.cki.spider.pro.SpiderUrl;
 import com.cki.spider.pro.SpiderUrlListener;
 import com.cki.spider.pro.util.NamedThreadFactory;
 import com.it7890.orange.config.TpConfig;
-import com.it7890.orange.dao.ConArticleContentDao;
 import com.it7890.orange.dao.ConArticleDao;
 import com.it7890.orange.entity.GrabDetailRule;
 import com.it7890.orange.entity.FetchArticle;
@@ -162,7 +161,11 @@ public class FetchArticleDetailService {
 							if (null != contEles && contEles.size() > 0) {
 								// 移除特定规则的内容
 								if (StringUtil.isNotEmpty(grabDetailRuleInfo.getReplaceCssPath())) {
-									contEles.select(grabDetailRuleInfo.getReplaceCssPath()).remove();
+									// 多个规则见用"&&"分隔
+									String[] replaceCssList = grabDetailRuleInfo.getReplaceCssPath().trim().split("&&");
+									for (String replaceItem : replaceCssList) {
+										contEles.select(replaceItem).remove();
+									}
 								}
 
 								// 文章内容中的图片
@@ -220,8 +223,8 @@ public class FetchArticleDetailService {
 							if (StringUtil.isNotEmpty(grabListRule.getNodeId())) {
 								articleInfo.put("nodeObj", AVObject.createWithoutData("GlobalNode", grabListRule.getNodeId())); //节点
 							}
-							if (StringUtil.isNotEmpty(grabListRule.getLangId())) {
-								articleInfo.put("languageObj", AVObject.createWithoutData("hb_languages", grabListRule.getLangId())); //语言
+							if (StringUtil.isNotEmpty(grabListRule.getLanguageId())) {
+								articleInfo.put("languageObj", AVObject.createWithoutData("hb_languages", grabListRule.getLanguageId())); //语言
 							}
 							if (StringUtil.isNotEmpty(grabListRule.getPublicationId())) {
 								articleInfo.put("publicationObj", AVObject.createWithoutData("con_publications", grabListRule.getPublicationId())); //媒体

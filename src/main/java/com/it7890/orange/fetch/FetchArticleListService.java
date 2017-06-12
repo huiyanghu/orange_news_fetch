@@ -72,11 +72,11 @@ public class FetchArticleListService {
 //		grabListRulInfo.setPublicationId("5919251f8274590062ac6300");
 //		grabListRulInfo.setChannelId("591983ff0b000c0067f9dcd1");
 //		grabListRulInfo.setCountryCode("ZH-TW");
-//		grabListRulInfo.setLangId("5923d82be330d9006439960c");
+//		grabListRulInfo.setLanguageId("5923d82be330d9006439960c");
 //		grabListRulInfo.setTopicId("591575430b000c0067f92816");
 //		grabListRulInfo.setConstant("utf-8");
 //		grabListRulInfo.setGrabTime(600);
-//		grabListRulInfo.setSiteUrl("www.esquire.tw/category/food-drink/"); //源url
+//		grabListRulInfo.setSiteUrl("http://www.esquire.tw/category/food-drink/"); //源url
 //		grabListRulInfo.setCssPath("div[role=main]"); //目标区域规则
 //		grabListRulInfo.setFindPre("div.cb-mask > a"); //目标文章url规则
 //		grabListRulInfo.setTitlePicCssPath("img"); //文章标题图片规则
@@ -90,7 +90,7 @@ public class FetchArticleListService {
 //		grabListRulInfo2.setPublicationId("5919251f8274590062ac6300");
 //		grabListRulInfo2.setChannelId("591983ff0b000c0067f9dcd1");
 //		grabListRulInfo2.setCountryCode("ZH-TW");
-//		grabListRulInfo2.setLangId("5923d82be330d9006439960c");
+//		grabListRulInfo2.setLanguageId("5923d82be330d9006439960c");
 //		grabListRulInfo2.setTopicId("5923d668e330d90064399528");
 //		grabListRulInfo2.setConstant("utf-8");
 //		grabListRulInfo2.setGrabTime(600);
@@ -103,21 +103,21 @@ public class FetchArticleListService {
 
 		GrabListRule grabListRulInfo3 = new GrabListRule();
 		grabListRulInfo3.setObjectId("591eb54c36a1d8003da36898");
-		grabListRulInfo3.setRuleName("wwlove");
-		grabListRulInfo3.setNodeId("591ea77136a1d8003da33ccb");
-		grabListRulInfo3.setPublicationId("5919251f8274590062ac6300");
-		grabListRulInfo3.setChannelId("591983ff0b000c0067f9dcd1");
+		grabListRulInfo3.setRuleName("fashion");
+//		grabListRulInfo3.setNodeId("591ea77136a1d8003da33ccb");
+//		grabListRulInfo3.setPublicationId("5919251f8274590062ac6300");
+//		grabListRulInfo3.setChannelId("591983ff0b000c0067f9dcd1");
 		grabListRulInfo3.setCountryCode("ZH-TW");
-		grabListRulInfo3.setLangId("5923d82be330d9006439960c");
-		grabListRulInfo3.setTopicId("5915770ca499d6006666a5c5");
+//		grabListRulInfo3.setLanguageId("5923d82be330d9006439960c");
+//		grabListRulInfo3.setTopicId("5915770ca499d6006666a5c5");
 		grabListRulInfo3.setConstant("utf-8");
-		grabListRulInfo3.setGrabTime(600);
+//		grabListRulInfo3.setGrabTime(600);
 		grabListRulInfo3.setSiteUrl("http://www.esquire.tw/category/style/fashion/"); //源url
-		grabListRulInfo3.setCssPath("div[role=main]"); //目标区域规则
-		grabListRulInfo3.setFindPre("div.cb-mask > a"); //目标文章url规则
-		grabListRulInfo3.setTitlePicCssPath("img"); //文章标题图片规则
-		grabListRulInfo3.setNextPageCssPath("a.next"); //文章列表下一页规则
-		grabListRulInfo3.setKeywords("style, people,lifestyle, 蘇富比"); //目标文章关键字
+//		grabListRulInfo3.setCssPath("div[role=main]"); //目标区域规则
+//		grabListRulInfo3.setFindPre("div.cb-mask > a"); //目标文章url规则
+//		grabListRulInfo3.setTitlePicCssPath("img"); //文章标题图片规则
+//		grabListRulInfo3.setNextPageCssPath("a.next"); //文章列表下一页规则
+//		grabListRulInfo3.setKeywords("style,people,lifestyle,蘇富比"); //目标文章关键字
 
 		try {
 //			Constants.FETCH_LIST_RULE_QUEUE.put(grabListRulInfo);
@@ -127,6 +127,9 @@ public class FetchArticleListService {
 			e.printStackTrace();
 			logger.warn("waitFetchGrabListQueue put cause: {}", e);
 		}
+
+
+
 
 		/**
 		 * =============================

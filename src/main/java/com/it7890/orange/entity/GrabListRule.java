@@ -6,7 +6,6 @@ package com.it7890.orange.entity;
 public class GrabListRule {
 
 	private String objectId;
-	private String pId;
 	private String ruleName;     //规则名称
 	private String publicationId;//媒体id
 	private String nodeId;      //节点id
@@ -14,7 +13,7 @@ public class GrabListRule {
 	private String cssPath;     //目标区域规则
 	private String siteUrl;     //源url
 	private String countryCode; //国家编码
-	private String langId;      //语言id
+	private String languageId;  //语言id
 	private String topicId;     //话题id
 	private String findPre;     //目标文章url规则
 	private String constant;    //编码
@@ -29,14 +28,6 @@ public class GrabListRule {
 
 	public void setObjectId(String objectId) {
 		this.objectId = objectId;
-	}
-
-	public String getpId() {
-		return pId;
-	}
-
-	public void setpId(String pId) {
-		this.pId = pId;
 	}
 
 	public String getRuleName() {
@@ -87,12 +78,12 @@ public class GrabListRule {
 		this.countryCode = countryCode;
 	}
 
-	public String getLangId() {
-		return langId;
+	public String getLanguageId() {
+		return languageId;
 	}
 
-	public void setLangId(String langId) {
-		this.langId = langId;
+	public void setLanguageId(String languageId) {
+		this.languageId = languageId;
 	}
 
 	public int getGrabTime() {

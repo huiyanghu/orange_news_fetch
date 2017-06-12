@@ -6,17 +6,17 @@ package com.it7890.orange.entity;
 public class GrabDetailRule {
 
 	private String objectId;
-	private String titleCssPath; //文章标题区域规则
+	private String titleCssPath;    //文章标题区域规则
 	private String titleImageCssPath; //文章标题区域图片规则
-	private String descCssPath;  //文章描述区域规则
-	private String conCssPath;   //文章内容区域规则
-	private String replaceCssPath;//剔除内容区域规则
-	private String souCssPath;   //来源区域规则
-	private String imgCssPath;   //图片规则
-	private String videoCssPath; //媒体规则
-	private String authorCssPath;//作者规则
-	private String keywordCssPath;//关键字规则
-	private String testUrl;      //测试url
+	private String descCssPath;     //文章描述区域规则
+	private String conCssPath;      //文章内容区域规则
+	private String replaceCssPath;  //剔除内容区域规则
+	private String souCssPath;      //来源区域规则
+	private String imgCssPath;      //图片规则
+	private String videoCssPath;    //媒体规则
+	private String authorCssPath;   //作者规则
+	private String keywordCssPath;  //关键字规则
+	private String testUrl;         //测试url
 
 	public String getObjectId() {
 		return objectId;

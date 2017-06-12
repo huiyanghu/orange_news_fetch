@@ -13,6 +13,7 @@ import com.cki.spider.pro.util.NamedThreadFactory;
 import com.it7890.orange.config.TpConfig;
 import com.it7890.orange.dao.ConArticleContentDao;
 import com.it7890.orange.dao.ConArticleDao;
+import com.it7890.orange.dao.MediaInfoDao;
 import com.it7890.orange.entity.FetchArticle;
 import com.it7890.orange.util.Constants;
 import com.it7890.orange.util.StringUtil;
@@ -23,6 +24,11 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +50,8 @@ public class FetchArticleResourceService {
 	private ConArticleDao conArticleDao;
 	@Resource
 	private ConArticleContentDao conArticleContentDao;
+	@Resource
+	private MediaInfoDao mediaInfoDao;
 
 	private ExecutorService articleResourceServiceExecutor;
 
@@ -130,11 +138,29 @@ public class FetchArticleResourceService {
 					logger.warn("fetch >>> spiderData content is empty");
 					return;
 				}
-				String fileSuffix = downloadMediaUrl.substring(downloadMediaUrl.lastIndexOf("."));    //后缀名
 
-				//通过AVFile构建文件数据流
-				boolean uploadSuccess = false;
+				// 流文件中获取图片宽高
+				int imageWidth = 0;
+				int imageHeight = 0;
+				InputStream inputs = new ByteArrayInputStream(fd.getContent());
+				try {
+					BufferedImage bufferedImage = ImageIO.read(inputs);
+					imageWidth = bufferedImage.getWidth();
+					imageHeight = bufferedImage.getHeight();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						inputs.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+
+				// 通过AVFile构建文件数据流
+				String fileSuffix = downloadMediaUrl.substring(downloadMediaUrl.lastIndexOf("."));    //后缀名
 				AVFile uploadFile = new AVFile(fetchArticleInfo.getUrlSalt() + fileSuffix, fd.getContent());
+				boolean uploadSuccess = false;
 				try {
 					uploadFile.save();
 					uploadSuccess = true;
@@ -171,6 +197,8 @@ public class FetchArticleResourceService {
 						logger.warn("重新加入文章资源队列失败，cause: {}", e);
 					}
 				} else {
+					mediaInfoDao.saveMediaInfo(uploadFile.getObjectId(), imageWidth, imageHeight);
+
 					//修改上传完成资源的属性
 					switch (mediaType) {
 						case 1:
