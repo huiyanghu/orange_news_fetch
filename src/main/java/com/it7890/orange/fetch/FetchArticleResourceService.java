@@ -129,7 +129,7 @@ public class FetchArticleResourceService {
 				logger.debug(" fetch-->postFetch, statusCode:{}, furl:{}", fd.getStatusCode(), furl.getUrl());
 
 				if (fd.getCause() != null || fd.getStatusCode() != 200) {
-					logger.warn(" fetch-->proxy failed,proxy:{},status:{},cause:{}", new Object[] { furl.getFetchProxy(), fd.getStatusCode(), fd.getCause() });
+					logger.warn(" fetch-->proxy failed,proxy:{},status:{},cause:{}", furl.getFetchProxy(), fd.getStatusCode(), fd.getCause());
 					return;
 				}
 				logger.debug("fetch result: {}", new Object[]{furl});

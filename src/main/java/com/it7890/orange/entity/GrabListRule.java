@@ -1,26 +1,31 @@
 package com.it7890.orange.entity;
 
+import com.avos.avoscloud.AVObject;
+
 /**
  * Created by Astro on 17/5/16.
  */
 public class GrabListRule {
 
 	private String objectId;
-	private String ruleName;     //规则名称
-	private String publicationId;//媒体id
-	private String nodeId;      //节点id
-	private String channelId;   //渠道id
-	private String cssPath;     //目标区域规则
-	private String siteUrl;     //源url
-	private String countryCode; //国家编码
-	private String languageId;  //语言id
-	private String topicId;     //话题id
-	private String findPre;     //目标文章url规则
-	private String constant;    //编码
-	private String keywords;    //关键字
-	private String titlePicCssPath;//标题图片规则
+	private AVObject publicationObj;//媒体对象
+	private AVObject nodeObj;       //节点对象
+	private AVObject channelObj;    //渠道对象
+	private AVObject languageObj;   //语言对象
+	private AVObject topicObj;      //话题对象
+
+	private String ruleName;      //规则名称
+	private String siteUrl;       //源url
+	private String countryCode;   //国家编码
+	private String findPre;       //目标文章url规则
+	private String constant;      //编码
+	private String keywords;      //关键字
+	private String cssPath;       //目标区域规则
 	private String nextPageCssPath;//下一页规则
-	private int grabTime;       //抓取周期秒
+	private String titlePicCssPath;//标题图片规则
+	private int grabTime;         //抓取周期秒
+
+	private GrabDetailRule grabDetailRule;
 
 	public String getObjectId() {
 		return objectId;
@@ -30,36 +35,52 @@ public class GrabListRule {
 		this.objectId = objectId;
 	}
 
+	public AVObject getPublicationObj() {
+		return publicationObj;
+	}
+
+	public void setPublicationObj(AVObject publicationObj) {
+		this.publicationObj = publicationObj;
+	}
+
+	public AVObject getNodeObj() {
+		return nodeObj;
+	}
+
+	public void setNodeObj(AVObject nodeObj) {
+		this.nodeObj = nodeObj;
+	}
+
+	public AVObject getChannelObj() {
+		return channelObj;
+	}
+
+	public void setChannelObj(AVObject channelObj) {
+		this.channelObj = channelObj;
+	}
+
+	public AVObject getLanguageObj() {
+		return languageObj;
+	}
+
+	public void setLanguageObj(AVObject languageObj) {
+		this.languageObj = languageObj;
+	}
+
+	public AVObject getTopicObj() {
+		return topicObj;
+	}
+
+	public void setTopicObj(AVObject topicObj) {
+		this.topicObj = topicObj;
+	}
+
 	public String getRuleName() {
 		return ruleName;
 	}
 
 	public void setRuleName(String ruleName) {
 		this.ruleName = ruleName;
-	}
-
-	public String getNodeId() {
-		return nodeId;
-	}
-
-	public void setNodeId(String nodeId) {
-		this.nodeId = nodeId;
-	}
-
-	public String getChannelId() {
-		return channelId;
-	}
-
-	public void setChannelId(String channelId) {
-		this.channelId = channelId;
-	}
-
-	public String getCssPath() {
-		return cssPath;
-	}
-
-	public void setCssPath(String cssPath) {
-		this.cssPath = cssPath;
 	}
 
 	public String getSiteUrl() {
@@ -78,30 +99,6 @@ public class GrabListRule {
 		this.countryCode = countryCode;
 	}
 
-	public String getLanguageId() {
-		return languageId;
-	}
-
-	public void setLanguageId(String languageId) {
-		this.languageId = languageId;
-	}
-
-	public int getGrabTime() {
-		return grabTime;
-	}
-
-	public void setGrabTime(int grabTime) {
-		this.grabTime = grabTime;
-	}
-
-	public String getTopicId() {
-		return topicId;
-	}
-
-	public void setTopicId(String topicId) {
-		this.topicId = topicId;
-	}
-
 	public String getFindPre() {
 		return findPre;
 	}
@@ -118,20 +115,28 @@ public class GrabListRule {
 		this.constant = constant;
 	}
 
-	public String getPublicationId() {
-		return publicationId;
-	}
-
-	public void setPublicationId(String publicationId) {
-		this.publicationId = publicationId;
-	}
-
 	public String getKeywords() {
 		return keywords;
 	}
 
 	public void setKeywords(String keywords) {
 		this.keywords = keywords;
+	}
+
+	public String getCssPath() {
+		return cssPath;
+	}
+
+	public void setCssPath(String cssPath) {
+		this.cssPath = cssPath;
+	}
+
+	public String getNextPageCssPath() {
+		return nextPageCssPath;
+	}
+
+	public void setNextPageCssPath(String nextPageCssPath) {
+		this.nextPageCssPath = nextPageCssPath;
 	}
 
 	public String getTitlePicCssPath() {
@@ -142,11 +147,19 @@ public class GrabListRule {
 		this.titlePicCssPath = titlePicCssPath;
 	}
 
-	public String getNextPageCssPath() {
-		return nextPageCssPath;
+	public int getGrabTime() {
+		return grabTime;
 	}
 
-	public void setNextPageCssPath(String nextPageCssPath) {
-		this.nextPageCssPath = nextPageCssPath;
+	public void setGrabTime(int grabTime) {
+		this.grabTime = grabTime;
+	}
+
+	public GrabDetailRule getGrabDetailRule() {
+		return grabDetailRule;
+	}
+
+	public void setGrabDetailRule(GrabDetailRule grabDetailRule) {
+		this.grabDetailRule = grabDetailRule;
 	}
 }

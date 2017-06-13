@@ -20,7 +20,7 @@ import com.cki.filter.config.FilterConfig;
 
 @Component
 public class UniqueService {
-	static final int MIN_SIZE = 1000000;
+	static final int MIN_SIZE = 100;
 	static final double PRECISE = 1.0E-5;
 
 	Logger log = LoggerFactory.getLogger(this.getClass());

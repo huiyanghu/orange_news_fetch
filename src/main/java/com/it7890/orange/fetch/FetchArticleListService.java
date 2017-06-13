@@ -10,8 +10,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
+import com.avos.avoscloud.AVObject;
 import com.it7890.orange.config.TpConfig;
 import com.it7890.orange.dao.ConArticleDao;
+import com.it7890.orange.dao.GrabDetailRuleDao;
+import com.it7890.orange.dao.GrabListRuleDao;
 import com.it7890.orange.entity.GrabDetailRule;
 import com.it7890.orange.entity.GrabListRule;
 import com.it7890.orange.entity.FetchArticle;
@@ -44,7 +47,11 @@ public class FetchArticleListService {
 	private TpConfig tpConfig;
 	@Resource
 	private ConArticleDao conArticleDao;
-	
+	@Resource
+	private GrabListRuleDao grabListRuleDao;
+	@Resource
+	private GrabDetailRuleDao grabDetailRuleDao;
+
 	private ExecutorService searchExecutor;
 	private Semaphore limit;
 	private AtomicLong atomicSum;
@@ -100,37 +107,6 @@ public class FetchArticleListService {
 //		grabListRulInfo2.setTitlePicCssPath("img"); //文章标题图片规则
 //		grabListRulInfo2.setNextPageCssPath("a.next"); //文章列表下一页规则
 //		grabListRulInfo2.setKeywords("woman,女神,女優"); //目标文章关键字
-
-		GrabListRule grabListRulInfo3 = new GrabListRule();
-		grabListRulInfo3.setObjectId("591eb54c36a1d8003da36898");
-		grabListRulInfo3.setRuleName("fashion");
-//		grabListRulInfo3.setNodeId("591ea77136a1d8003da33ccb");
-//		grabListRulInfo3.setPublicationId("5919251f8274590062ac6300");
-//		grabListRulInfo3.setChannelId("591983ff0b000c0067f9dcd1");
-		grabListRulInfo3.setCountryCode("ZH-TW");
-//		grabListRulInfo3.setLanguageId("5923d82be330d9006439960c");
-//		grabListRulInfo3.setTopicId("5915770ca499d6006666a5c5");
-		grabListRulInfo3.setConstant("utf-8");
-//		grabListRulInfo3.setGrabTime(600);
-		grabListRulInfo3.setSiteUrl("http://www.esquire.tw/category/style/fashion/"); //源url
-//		grabListRulInfo3.setCssPath("div[role=main]"); //目标区域规则
-//		grabListRulInfo3.setFindPre("div.cb-mask > a"); //目标文章url规则
-//		grabListRulInfo3.setTitlePicCssPath("img"); //文章标题图片规则
-//		grabListRulInfo3.setNextPageCssPath("a.next"); //文章列表下一页规则
-//		grabListRulInfo3.setKeywords("style,people,lifestyle,蘇富比"); //目标文章关键字
-
-		try {
-//			Constants.FETCH_LIST_RULE_QUEUE.put(grabListRulInfo);
-//			Constants.FETCH_LIST_RULE_QUEUE.put(grabListRulInfo2);
-			Constants.FETCH_LIST_RULE_QUEUE.put(grabListRulInfo3);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			logger.warn("waitFetchGrabListQueue put cause: {}", e);
-		}
-
-
-
-
 		/**
 		 * =============================
 		 * =============================
@@ -139,29 +115,88 @@ public class FetchArticleListService {
 		 * =============================
 		 */
 
-		this.searchExecutor.execute(new Runnable() {
-			@Override
-			public void run() {
-			while (true) {
-				if (Thread.currentThread().isInterrupted()) {
-					return;
-				}
+		List<AVObject> grabDetailRules = grabDetailRuleDao.findGrabDetailRules();
+		logger.info("grabDetailRules >>>>>>>>: {}", grabDetailRules.size());
+		List<AVObject> grabListRules = grabListRuleDao.findGrabListRules();
+		logger.info("grabListRules >>>>>>>>: {}", grabListRules.size());
 
-				if(Constants.FETCH_LIST_RULE_QUEUE.size() > 0) {
-					try {
-						GrabListRule grabListRulInfo = Constants.FETCH_LIST_RULE_QUEUE.take();
-						if(StringUtil.isNotEmpty(grabListRulInfo.getSiteUrl())) {
-							logger.debug("抓取数据源 - {}", grabListRulInfo.getSiteUrl());
-							urlSearch(grabListRulInfo);
-						}
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-						logger.warn("waitFetchGrabListQueue take cause: {}", e);
-					}
+		GrabDetailRule grabDetailRule;
+		GrabListRule grabListRule;
+		for (AVObject grabListRuleObj : grabListRules) {
+			grabListRule = new GrabListRule();
+			grabListRule.setObjectId(grabListRuleObj.getObjectId());
+			grabListRule.setPublicationObj(grabListRuleObj.getAVObject("publicationObj"));
+			grabListRule.setNodeObj(grabListRuleObj.getAVObject("nodeObj"));
+			grabListRule.setChannelObj(grabListRuleObj.getAVObject("channelObj"));
+			grabListRule.setLanguageObj(grabListRuleObj.getAVObject("languageObj"));
+			grabListRule.setTopicObj(grabListRuleObj.getAVObject("topicObj"));
+
+			grabListRule.setRuleName(grabListRuleObj.getString("ruleName"));
+			grabListRule.setSiteUrl(grabListRuleObj.getString("siteUrl"));
+			grabListRule.setCountryCode(grabListRuleObj.getString("countryCode"));
+			grabListRule.setFindPre(grabListRuleObj.getString("findPre"));
+			grabListRule.setConstant(grabListRuleObj.getString("constant"));
+			grabListRule.setKeywords(grabListRuleObj.getString("keywords"));
+			grabListRule.setCssPath(grabListRuleObj.getString("cssPath"));
+			grabListRule.setNextPageCssPath(grabListRuleObj.getString("nextPageCssPath"));
+			grabListRule.setTitlePicCssPath(grabListRuleObj.getString("titlePicCssPath"));
+			grabListRule.setGrabTime(grabListRuleObj.getInt("grabTime"));
+
+			grabDetailRule = null;
+			for (AVObject grabDetailRuleObj : grabDetailRules) {
+				grabDetailRule = new GrabDetailRule();
+				if (grabDetailRuleObj.getObjectId().equals(grabListRuleObj.getObjectId())) {
+					grabDetailRule.setObjectId(grabDetailRuleObj.getObjectId());
+					grabDetailRule.setGrabListRuleObj(grabDetailRuleObj.getAVObject("grabListRuleObj"));
+					grabDetailRule.setTitleCssPath(grabDetailRuleObj.getString("titleCssPath"));
+					grabDetailRule.setDescCssPath(grabDetailRuleObj.getString("descCssPath"));
+					grabDetailRule.setConCssPath(grabDetailRuleObj.getString("conCssPath"));
+					grabDetailRule.setReplaceCssPath(grabDetailRuleObj.getString("replaceCssPath"));
+					grabDetailRule.setSouCssPath(grabDetailRuleObj.getString("souCssPath"));
+					grabDetailRule.setImgCssPath(grabDetailRuleObj.getString("imgCssPath"));
+					grabDetailRule.setVideoCssPath(grabDetailRuleObj.getString("videoCssPath"));
+					grabDetailRule.setAuthorCssPath(grabDetailRuleObj.getString("authorCssPath"));
+					grabDetailRule.setKeywordCssPath(grabDetailRuleObj.getString("keywordCssPath"));
+					grabDetailRule.setTestUrl(grabDetailRuleObj.getString("testUrl"));
+					break;
 				}
 			}
+			if (null != grabDetailRule) {
+				grabListRule.setGrabDetailRule(grabDetailRule);
+				try {
+					Constants.FETCH_LIST_RULE_QUEUE.put(grabListRule);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+					logger.warn("waitFetchGrabListQueue put cause: {}", e);
+				}
 			}
-		});		
+		}
+
+		logger.info("Constants.FETCH_LIST_RULE_QUEUE ================>: {}", Constants.FETCH_LIST_RULE_QUEUE.size());
+
+//		this.searchExecutor.execute(new Runnable() {
+//			@Override
+//			public void run() {
+//			while (true) {
+//				if (Thread.currentThread().isInterrupted()) {
+//					return;
+//				}
+//
+//				if(Constants.FETCH_LIST_RULE_QUEUE.size() > 0) {
+//					try {
+//						GrabListRule grabListRulInfo = Constants.FETCH_LIST_RULE_QUEUE.take();
+//						if(StringUtil.isNotEmpty(grabListRulInfo.getSiteUrl())) {
+//							logger.debug("准备抓取数据源 - {}", grabListRulInfo.getSiteUrl());
+//							urlSearch(grabListRulInfo);
+//						}
+//					} catch (InterruptedException e) {
+//						e.printStackTrace();
+//						logger.warn("waitFetchGrabListQueue take cause: {}", e);
+//					}
+//				}
+//			}
+//			}
+//		});
 	}
 
 	private void urlSearch(final GrabListRule grabListRulInfo) {
@@ -188,7 +223,7 @@ public class FetchArticleListService {
 					if (fd == null) {
 						logger.warn(" fetch-->fd is null.furl:{},proxy:{}", furl.getUrl(), furl.getFetchProxy());
 					} else {
-						logger.warn(" fetch-->proxy failed,proxy:{},status:{},cause:{}", new Object[] { furl.getFetchProxy(), fd.getStatusCode(), fd.getCause() });
+						logger.warn(" fetch-->proxy failed,proxy:{},status:{},cause:{}", furl.getFetchProxy(), fd.getStatusCode(), fd.getCause());
 					}
 					atomicSum.incrementAndGet();
 					return;
@@ -202,7 +237,6 @@ public class FetchArticleListService {
 					logger.debug("content element size: {}", contentElements.size());
 
 					if (contentElements.size() > 0) {
-						GrabDetailRule grabDetailRule;
 						if (StringUtil.isNotEmpty(grabListRulInfo.getFindPre())) {
 							Elements articleElements = contentElements.get(0).select(grabListRulInfo.getFindPre());
 							for (Element articleElement : articleElements) {
@@ -220,31 +254,18 @@ public class FetchArticleListService {
 								}
 								logger.debug("抓取到文章标题图片：{}", titleImageUrls);
 
-								grabDetailRule = new GrabDetailRule();
-								grabDetailRule.setObjectId("591bbd1aa499d600666e64db");
-								grabDetailRule.setTitleCssPath("h1.entry-title");
-								grabDetailRule.setTitleImageCssPath("header#cb-standard-featured > div.cb-mask > img");
-								grabDetailRule.setDescCssPath("section[itemprop=articleBody] > p > strong");
-								grabDetailRule.setConCssPath("section[itemprop=articleBody]");
-								grabDetailRule.setReplaceCssPath("div.fbcb_container");
-								grabDetailRule.setSouCssPath("");
-								grabDetailRule.setImgCssPath("");
-								grabDetailRule.setVideoCssPath("");
-								grabDetailRule.setAuthorCssPath("div.cb-author.cb-byline-element > a");
-								grabDetailRule.setKeywordCssPath("");
-								grabDetailRule.setTestUrl("");
-
 								String urlSalt = StringUtil.getMD5(articleDetailUrl);
-								FetchArticle fetchArticle = new FetchArticle();
-								fetchArticle.setGrabDetailRuleInfo(grabDetailRule);
-								fetchArticle.setGrabListRule(grabListRulInfo);
-								fetchArticle.setSourceUrl(articleDetailUrl);
-								fetchArticle.setUrlSalt(urlSalt);
-								fetchArticle.setOriginTitleImageUrls(titleImageUrls);
 								try {
 									boolean articleExist = conArticleDao.getExistArticleBySalt(urlSalt);
 									if (!articleExist) {
-										logger.debug("发现未抓取的文章>>> {}", articleDetailUrl);
+										logger.debug("发现新文章>>> {}", articleDetailUrl);
+
+										FetchArticle fetchArticle = new FetchArticle();
+										fetchArticle.setGrabDetailRuleInfo(grabListRulInfo.getGrabDetailRule());
+										fetchArticle.setGrabListRule(grabListRulInfo);
+										fetchArticle.setSourceUrl(articleDetailUrl);
+										fetchArticle.setUrlSalt(urlSalt);
+										fetchArticle.setOriginTitleImageUrls(titleImageUrls);
 										Constants.FETCH_ARTICLE_QUEUE.put(fetchArticle);
 									}
 								} catch (InterruptedException e) {
@@ -274,7 +295,6 @@ public class FetchArticleListService {
 				}
 				
 				atomicSum.incrementAndGet();
-				// proxyManager.stat(furl.getFetchProxy(), true);
 			}
 
 			@Override

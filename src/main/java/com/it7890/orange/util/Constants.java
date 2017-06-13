@@ -15,4 +15,11 @@ public interface Constants {
 
 	String RESOURCE_TMP_PATH = "resourceTmpPath";
 
+	/**
+	 * leancloud key
+	 */
+	String LEAN_CLOUD_APP_ID = "VV7zErT5UtBfnhkkllg9wboY-MdYXbMMI";
+	String LEAN_CLOUD_APP_KEY = "q8QNg0P0npQDGWlsQh8HbtgS";
+	String LEAN_CLOUD_MASTER_KEY = "sMQk7iWLaVWsVHmWMlhSyP5P";
+
 }

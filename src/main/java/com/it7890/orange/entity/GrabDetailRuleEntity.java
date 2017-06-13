@@ -1,15 +1,14 @@
 package com.it7890.orange.entity;
 
-import com.avos.avoscloud.AVObject;
-
 /**
  * Created by Astro on 17/5/16.
  */
-public class GrabDetailRule {
+public class GrabDetailRuleEntity {
 
 	private String objectId;
-	private AVObject grabListRuleObj; //关联列表规则对象
+	private String grabListRuleId;  //列表规则id
 	private String titleCssPath;    //文章标题区域规则
+	private String titleImageCssPath; //文章标题区域图片规则
 	private String descCssPath;     //文章描述区域规则
 	private String conCssPath;      //文章内容区域规则
 	private String replaceCssPath;  //剔除内容区域规则
@@ -108,11 +107,11 @@ public class GrabDetailRule {
 		this.replaceCssPath = replaceCssPath;
 	}
 
-	public AVObject getGrabListRuleObj() {
-		return grabListRuleObj;
+	public String getTitleImageCssPath() {
+		return titleImageCssPath;
 	}
 
-	public void setGrabListRuleObj(AVObject grabListRuleObj) {
-		this.grabListRuleObj = grabListRuleObj;
+	public void setTitleImageCssPath(String titleImageCssPath) {
+		this.titleImageCssPath = titleImageCssPath;
 	}
 }

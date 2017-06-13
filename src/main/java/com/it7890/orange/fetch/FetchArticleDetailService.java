@@ -87,8 +87,11 @@ public class FetchArticleDetailService {
 						String sourceUrl = fetchArticleInfo.getSourceUrl();
 						String urlSalt = fetchArticleInfo.getUrlSalt();
 						if(StringUtil.isNotEmpty(sourceUrl) && StringUtil.isNotEmpty(urlSalt)) {
-							logger.debug("开始抓取 - {}", sourceUrl);
-							urlSearch(fetchArticleInfo);
+							boolean unique = uniqueService.feed(urlSalt);
+							if(unique) {
+								logger.debug("准备抓取 - {}", sourceUrl);
+								urlSearch(fetchArticleInfo);
+							}
 						}
 					}
 				}
@@ -118,7 +121,7 @@ public class FetchArticleDetailService {
 					if (fd == null) {
 						logger.warn(" fetch-->fd is null.furl:{},proxy:{}", furl.getUrl(), furl.getFetchProxy());
 					} else {
-						logger.warn(" fetch-->proxy failed,proxy:{},status:{},cause:{}", new Object[] { furl.getFetchProxy(), fd.getStatusCode(), fd.getCause() });
+						logger.warn(" fetch-->proxy failed,proxy:{},status:{},cause:{}", furl.getFetchProxy(), fd.getStatusCode(), fd.getCause());
 					}
 					atomicSum.incrementAndGet();
 					return;
@@ -202,6 +205,22 @@ public class FetchArticleDetailService {
 							GrabListRule grabListRule = fetchArticleInfo.getGrabListRule();
 							GrabDetailRule grabDetailRule = fetchArticleInfo.getGrabDetailRuleInfo();
 
+							if (null == grabListRule.getNodeObj() || StringUtil.isEmpty(grabListRule.getNodeObj().getObjectId())) {
+								return;
+							}
+							if (null == grabListRule.getLanguageObj() && StringUtil.isNotEmpty(grabListRule.getLanguageObj().getObjectId())) {
+								return;
+							}
+							if (null == grabListRule.getPublicationObj() && StringUtil.isNotEmpty(grabListRule.getPublicationObj().getObjectId())) {
+								return;
+							}
+							if (null == grabListRule.getChannelObj() && StringUtil.isNotEmpty(grabListRule.getChannelObj().getObjectId())) {
+								return;
+							}
+							if (null != grabListRule.getTopicObj() && StringUtil.isNotEmpty(grabListRule.getTopicObj().getObjectId())) {
+								return;
+							}
+
 							AVObject articleInfo = new AVObject("conarticle");
 							articleInfo.put("grabListRuleObj", AVObject.createWithoutData("con_grab_lrule", grabListRule.getObjectId()));
 							articleInfo.put("grabDetailRuleObj", AVObject.createWithoutData("con_grab_crule", grabDetailRule.getObjectId()));
@@ -220,20 +239,20 @@ public class FetchArticleDetailService {
 							articleInfo.put("ctype", 0);
 							articleInfo.put("status", 0);
 
-							if (StringUtil.isNotEmpty(grabListRule.getNodeId())) {
-								articleInfo.put("nodeObj", AVObject.createWithoutData("GlobalNode", grabListRule.getNodeId())); //节点
+							if (null != grabListRule.getNodeObj() && StringUtil.isNotEmpty(grabListRule.getNodeObj().getObjectId())) {
+								articleInfo.put("nodeObj", AVObject.createWithoutData("GlobalNode", grabListRule.getNodeObj().getObjectId())); //节点
 							}
-							if (StringUtil.isNotEmpty(grabListRule.getLanguageId())) {
-								articleInfo.put("languageObj", AVObject.createWithoutData("hb_languages", grabListRule.getLanguageId())); //语言
+							if (null != grabListRule.getLanguageObj() && StringUtil.isNotEmpty(grabListRule.getLanguageObj().getObjectId())) {
+								articleInfo.put("languageObj", AVObject.createWithoutData("hb_languages", grabListRule.getLanguageObj().getObjectId())); //语言
 							}
-							if (StringUtil.isNotEmpty(grabListRule.getPublicationId())) {
-								articleInfo.put("publicationObj", AVObject.createWithoutData("con_publications", grabListRule.getPublicationId())); //媒体
+							if (null != grabListRule.getPublicationObj() && StringUtil.isNotEmpty(grabListRule.getPublicationObj().getObjectId())) {
+								articleInfo.put("publicationObj", AVObject.createWithoutData("con_publications", grabListRule.getPublicationObj().getObjectId())); //媒体
 							}
-							if (StringUtil.isNotEmpty(grabListRule.getChannelId())) {
-								articleInfo.put("channelObj", AVObject.createWithoutData("con_channel", grabListRule.getChannelId())); //渠道
+							if (null != grabListRule.getChannelObj() && StringUtil.isNotEmpty(grabListRule.getChannelObj().getObjectId())) {
+								articleInfo.put("channelObj", AVObject.createWithoutData("con_channel", grabListRule.getChannelObj().getObjectId())); //渠道
 							}
-							if (StringUtil.isNotEmpty(grabListRule.getTopicId())) {
-								articleInfo.put("topicObj", AVObject.createWithoutData("AppTopics", grabListRule.getTopicId())); //话题
+							if (null != grabListRule.getTopicObj() && StringUtil.isNotEmpty(grabListRule.getTopicObj().getObjectId())) {
+								articleInfo.put("topicObj", AVObject.createWithoutData("AppTopics", grabListRule.getTopicObj().getObjectId())); //话题
 							}
 
 							// 判断文章中是否有图片(标题、内容)
@@ -249,15 +268,11 @@ public class FetchArticleDetailService {
 									logger.warn("加入待处理文章资源队列失败，cause: {}", e);
 								}
 							} else {
-								String urlSalt = fetchArticleInfo.getUrlSalt();
-								boolean unique = uniqueService.feed(urlSalt);
-								if(unique) {
-									boolean articleExist = conArticleDao.getExistArticleBySalt(urlSalt);
-									if (!articleExist) {
-										articleInfo.put("attr", 0); // 0文字新闻 1图片新闻 2视频新闻 3 连接新闻 4H5游戏新闻 5竞猜新闻 6游戏新闻
-										String articleId = articleService.saveConArticle(articleInfo, articleContent);
-										logger.debug("新文章id: {}", articleId);
-									}
+								boolean articleExist = conArticleDao.getExistArticleBySalt(fetchArticleInfo.getUrlSalt());
+								if (!articleExist) {
+									articleInfo.put("attr", 0); // 0文字新闻 1图片新闻 2视频新闻 3 连接新闻 4H5游戏新闻 5竞猜新闻 6游戏新闻
+									String articleId = articleService.saveConArticle(articleInfo, articleContent);
+									logger.debug("新文章id: {}", articleId);
 								}
 							}
 						} else {
@@ -280,7 +295,7 @@ public class FetchArticleDetailService {
 		});
 	}
 
-	private static String removeAElement(String articleContent) {
+	public static String removeAElement(String articleContent) {
 		if (StringUtil.isNotEmpty(articleContent)) {
 			Pattern pattern = Pattern.compile(".*(<a.*>.*<img.*?>.*</a>)");
 			Pattern imgPattern = Pattern.compile("<img.*?>");

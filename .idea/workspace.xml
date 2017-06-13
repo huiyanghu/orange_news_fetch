@@ -1,7 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="393f36f7-de2c-40e3-967e-7810b0830d2e" name="Default" comment="" />
+    <list default="true" id="393f36f7-de2c-40e3-967e-7810b0830d2e" name="Default" comment="备注">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jetty-http-9.4.6.v20170531.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jetty-io-9.4.6.v20170531.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jetty-security-9.4.6.v20170531.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jetty-server-9.4.6.v20170531.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jetty-servlet-9.4.6.v20170531.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/jetty-util-9.4.6.v20170531.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/log4j-1.2.17.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/log4j-api-2.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/servlet-api-3.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/slf4j-api-1.7.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/slf4j-log4j12-1.7.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/GrabDetailRuleDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/GrabListRuleDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/MediaInfoDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabDetailRuleEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabListRuleEntity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/GrabDetailRuleService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/GrabListRuleService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/MediaInfoService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/GrabDetailRuleServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/GrabListRuleServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/MediaInfoServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabDetailRuleServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabListRuleServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/SearchServlet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/ResponseUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/it7890/orange/test/JettyServletExampleServer.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/FetchArticleUrlService$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/FetchArticleUrlService$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/FetchArticleUrlService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/qiniu/test/Demo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/qiniu/test/QiniuApiUpDemo.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/QiNiuApiUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/QiNiuConstants.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/RedisConstants.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/RedisQueueUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/com/qiniu/api/config/Config.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/spring/jedis.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/logback-classic-0.9.17.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/logback-core-0.9.17.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/QiNiuConstants.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/RedisConstants.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/RedisQueueUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/it7890/orange/qiniu/test/QiniuApiUpDemo.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/spring/jedis.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/jedis.xml.backup" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/base/spring/AnnotationBeanPostProcessor.class" afterPath="$PROJECT_DIR$/bin/com/cki/base/spring/AnnotationBeanPostProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/base/spring/Facade.class" afterPath="$PROJECT_DIR$/bin/com/cki/base/spring/Facade.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/base/spring/NoTxFacade.class" afterPath="$PROJECT_DIR$/bin/com/cki/base/spring/NoTxFacade.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/base/spring/NoTxService.class" afterPath="$PROJECT_DIR$/bin/com/cki/base/spring/NoTxService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/base/spring/Properties.class" afterPath="$PROJECT_DIR$/bin/com/cki/base/spring/Properties.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/fetch/util/SpiderUrlUtil.class" afterPath="$PROJECT_DIR$/bin/com/cki/fetch/util/SpiderUrlUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/BloomCalculations$BloomSpecification.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/BloomCalculations$BloomSpecification.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/BloomCalculations.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/BloomCalculations.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/BloomFilter.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/BloomFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/BloomFilterSeenDetector.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/BloomFilterSeenDetector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/DocKeyCollector$1.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/DocKeyCollector$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/DocKeyCollector.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/DocKeyCollector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/Filter.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/Filter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/MurmurHash.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/MurmurHash.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/SeenDetector.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/SeenDetector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/UniqueService.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/UniqueService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/filter/config/FilterConfig.class" afterPath="$PROJECT_DIR$/bin/com/cki/filter/config/FilterConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/DefaultSpider.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/DefaultSpider.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/ExecutionContext$1.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/ExecutionContext$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/ExecutionContext$2.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/ExecutionContext$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/ExecutionContext.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/ExecutionContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/HttpHeaders$Names.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/HttpHeaders$Names.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/HttpHeaders.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/HttpHeaders.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/MimeType$Major.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/MimeType$Major.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/MimeType$Minor.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/MimeType$Minor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/MimeType.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/MimeType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/ResponseBodyCollector.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/ResponseBodyCollector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/Spider.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/Spider.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderConfig.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderData.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderData.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderMethod.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderMethod.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderProxy.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderProxy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderUrl.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderUrl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderUrlListener.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/SpiderUrlListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/component/Cache.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/component/Cache.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/AHrefBasedLinkResolver.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/AHrefBasedLinkResolver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DefaultSpiderController$1.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DefaultSpiderController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DefaultSpiderController$2.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DefaultSpiderController$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DefaultSpiderController.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DefaultSpiderController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DomainBreadth.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/DomainBreadth.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/InternalSpiderUrl.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/InternalSpiderUrl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/LinkResolver.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/LinkResolver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/MemBasedSpiderUrlQueue.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/MemBasedSpiderUrlQueue.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderController.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTask.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTask.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskContext$1.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskContext$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskContext$2.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskContext$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskContext.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskFilter.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskListener.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderTaskListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderUrlQueue.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/SpiderUrlQueue.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/TaskFuture.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/TaskFuture.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/TaskStatistics.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/TaskStatistics.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/TraverseStrategy.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/TraverseStrategy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/filter/HashBasedDuplicateDetector.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/filter/HashBasedDuplicateDetector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/filter/SimilarUrlDetector.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/controller/filter/SimilarUrlDetector.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/Cookie.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/Cookie.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/CookieStore.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/CookieStore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/NoopCookieStore.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/NoopCookieStore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/SimpleCookieStore.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/cookie/SimpleCookieStore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/filter/MimeFilter.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/filter/MimeFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/filter/SpiderFilter.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/filter/SpiderFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/filter/SpiderFilters.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/filter/SpiderFilters.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/future/SpiderFuture.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/future/SpiderFuture.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/host/event/ContextEvent.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/host/event/ContextEvent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/host/event/HostContextEvent.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/host/event/HostContextEvent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/host/event/RequestContextEvent.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/host/event/RequestContextEvent.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/netty/ChannelPipelineFactory.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/netty/ChannelPipelineFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/timeout/SimpleTimeoutManager$1.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/timeout/SimpleTimeoutManager$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/timeout/SimpleTimeoutManager.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/timeout/SimpleTimeoutManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/timeout/TimeoutManager.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/timeout/TimeoutManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/CharsetUtil.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/CharsetUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/HtmlUtil.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/HtmlUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/HttpHeaderUtil.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/HttpHeaderUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/MD5.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/MD5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/NamedThreadFactory.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/NamedThreadFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/UrlUtil.class" afterPath="$PROJECT_DIR$/bin/com/cki/spider/pro/util/UrlUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/ExecutionDispatcher$1.class" afterPath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/ExecutionDispatcher$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/ExecutionDispatcher.class" afterPath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/ExecutionDispatcher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostContext$1.class" afterPath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostContext$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostContext$Handler.class" afterPath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostContext$Handler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostContext.class" afterPath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostPortAndUri.class" afterPath="$PROJECT_DIR$/bin/com/cki/spier/pro/host/HostPortAndUri.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/DefaultMailService$1.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/DefaultMailService$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/DefaultMailService.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/DefaultMailService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/MailService.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/MailService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/MockMailService.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/common/mail/MockMailService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/config/TpConfig.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/config/TpConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/dto/AsNameDTO.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/dto/AsNameDTO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/dto/BuDeJieDTO.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/dto/BuDeJieDTO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/dto/FetchTopicAndResources.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/dto/FetchTopicAndResources.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/dto/ProcessResourcesDTO.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/dto/ProcessResourcesDTO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/dto/ProcessResultDTO.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/dto/ProcessResultDTO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/dto/QiNiuNotifyDTO.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/dto/QiNiuNotifyDTO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/GrabListRule.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/GrabListRule.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/SiteUrlConfig.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/SiteUrlConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/SiteUrlItem.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/SiteUrlItem.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/Topic.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/Topic.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicFetch.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicFetch.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicFetchResources.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicFetchResources.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicProcessNotify.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicProcessNotify.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicResources.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/TopicResources.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/entity/UserInfo.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/entity/UserInfo.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/BaseAnalysis.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/BaseAnalysis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/Bootstrap.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/Bootstrap.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/DefaultAnalysis.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/fetch/DefaultAnalysis.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/QuartzJob.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/QuartzJob.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/QuartzManager.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/QuartzManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/QuartzTest.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/QuartzTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/StartQuartz.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/quartz/StartQuartz.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/Constants.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/Constants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/DateUtil.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/DateUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/FileUtil.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/FileUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/GetAnalysisClass.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/GetAnalysisClass.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/HttpClient4Util.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/HttpClient4Util.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/JedisUtil.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/JedisUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/JsonUtils.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/JsonUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/SpringUtil.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/SpringUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/it7890/orange/util/StringUtil.class" afterPath="$PROJECT_DIR$/bin/com/it7890/orange/util/StringUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatKeyStore.class" afterPath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatKeyStore.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatSslContextFactory.class" afterPath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatSslContextFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatTrustManagerFactory$1.class" afterPath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatTrustManagerFactory$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatTrustManagerFactory.class" afterPath="$PROJECT_DIR$/bin/org/jboss/netty/example/securechat/SecureChatTrustManagerFactory.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/Page.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/Page.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/PropertyFilter$MatchType.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/PropertyFilter$MatchType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/PropertyFilter$PropertyType.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/PropertyFilter$PropertyType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/PropertyFilter.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/PropertyFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/HibernateDao.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/HibernateDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/HibernateWebUtils.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/HibernateWebUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/OpenSessionInViewFilter.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/OpenSessionInViewFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/SimpleHibernateDao.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/orm/hibernate/SimpleHibernateDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/utils/MD5.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/utils/MD5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/utils/ReflectionUtils.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/utils/ReflectionUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/org/springside/modules/utils/SpringContextUtil.class" afterPath="$PROJECT_DIR$/bin/org/springside/modules/utils/SpringContextUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/orange_api.properties" afterPath="$PROJECT_DIR$/bin/orange_api.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/orange_news_fetch.iml" afterPath="$PROJECT_DIR$/orange_news_fetch.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/cki/filter/UniqueService.java" afterPath="$PROJECT_DIR$/src/main/java/com/cki/filter/UniqueService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/ConArticleDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/ConArticleDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabDetailRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabDetailRule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabListRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabListRule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/Bootstrap.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/Bootstrap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleDetailService.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleDetailService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleListService.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleListService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleResourceService.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleResourceService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/orange_api.properties" afterPath="$PROJECT_DIR$/src/main/resources/orange_api.properties" />
+    </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,24 +210,114 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Bootstrap.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CheckGrabListRuleServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabListRuleServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="53" column="113" lean-forward="false" selection-start-line="53" selection-start-column="113" selection-end-line="53" selection-end-column="113" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2101#2117#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckGrabDetailRuleServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabDetailRuleServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="964">
+              <caret line="119" column="17" lean-forward="false" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Bootstrap.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/Bootstrap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="645">
+              <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FetchArticleUrlService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleUrlService.java">
+      <file leaf-file-name="FetchArticleListService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleListService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+            <state relative-caret-position="749">
+              <caret line="115" column="11" lean-forward="true" selection-start-line="115" selection-start-column="11" selection-end-line="115" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orange_api.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/orange_api.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/common.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FetchArticleDetailService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleDetailService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+              <folding>
+                <element signature="e#2232#3080#0" expanded="true" />
+                <element signature="e#3079#3080#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FetchArticleResourceService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleResourceService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="55" column="54" lean-forward="false" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrabDetailRuleDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/GrabDetailRuleDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,17 +327,47 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Hibernate</find>
-      <find>FetchService</find>
-      <find>toupai.properties</find>
-      <find>cb-content</find>
+      <find>fetch--&gt;postFetch</find>
+      <find>.setTitleImageUrls</find>
+      <find>=========================&gt;&gt;&gt;&gt;&gt;&gt;</find>
+      <find>fetchArticleDetailService grabDetailRuleInfo&gt;&gt;&gt;</find>
+      <find>fetchArticleDetailService body&gt;&gt;&gt;</find>
+      <find>文章标题图片文件：</find>
+      <find>文章内容中的图片&gt;&gt;&gt;&gt;&gt;</find>
+      <find>cb-mask</find>
+      <find>抓取到文章标题图片：</find>
+      <find>发现未抓取的文章&gt;&gt;&gt;</find>
+      <find>获取到下一页url</find>
+      <find>获取到下一页url ====================&gt;&gt;&gt;&gt;</find>
+      <find>FetchArticleListService</find>
+      <find>timeout</find>
+      <find>Jsoup(</find>
+      <find>Jsoup</find>
+      <find>getReplaceCssPath</find>
+      <find>articleResourceServiceExecutor</find>
+      <find>待抓取的文章内容图片：</find>
+      <find>FetchArticleDetailService</find>
+      <find>future.is not Success</find>
+      <find>fetchArticleInfo:</find>
+      <find>height</find>
+      <find>getReplace</find>
+      <find>servlet</find>
+      <find>arrayFormat</find>
+      <find>log4j-core</find>
+      <find>log4j-over-</find>
+      <find>Constants.FETCH_LIST_RULE_QUEUE ================&gt;</find>
+      <find>5919251f8274590062ac6300</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -63,39 +377,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/spring-context-3.0.1.RELEASE.jar!/org/springframework/context/support/ClassPathXmlApplicationContext.class" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/util/JsonUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/SiteUrlConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/SiteUrlItem.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/Topic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/TopicFetch.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/TopicFetchResources.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/TopicProcessNotify.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/TopicResources.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity/UserInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/SiteUrlConfigRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/SiteUrlItemRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicProcessNotifyRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicFetchResourcesRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicResourcesRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/UserInfoRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/toupai.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicFetchRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/springside/modules/orm/hibernate/HibernateDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/springside/modules/orm/hibernate/SimpleHibernateDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticlePageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabContentRule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/WaitGrabArticle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/AppAdvert.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/ConArticle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/WaitFetchArticle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/ConArticlesContent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/ConArticleContent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/ConArticleContentDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/Propertie.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/FileUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/ArticleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/ArticleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/FetchArticle.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/it7890/orange/qiniu/test/QiniuApiUpDemo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/StringUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/MediaInfoDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/MediaInfoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/MediaInfoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/it7890/orange/qiniu/test/Demo.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/it7890/orange/qiniu/test/HelloHandler.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/it7890/orange/qiniu/test/JettyExampleServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/ResponseUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/SearchServlet.java" />
+        <option value="$PROJECT_DIR$/orange_news_fetch.iml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/JsonUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabListRuleEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabDetailRule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabDetailRuleEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/GrabListRuleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/GrabDetailRuleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/GrabDetailRuleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/ConArticleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/service/GrabListRuleService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/query/GrabListRuleQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/GrabListRuleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/query/GrabDetailRuleQuery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabListRule.java" />
         <option value="$PROJECT_DIR$/src/main/resources/orange_api.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/fetch/analysis/AnalysisSpiderData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/util/RedisConstants.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/quartz/QuartzDataSupplyTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/quartz/StartQuartz.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/nian30/toupai/fetch/FetchService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/common.xml" />
-        <option value="$PROJECT_DIR$/src/test/resources/test/common.xml" />
-        <option value="$PROJECT_DIR$/src/test/resources/test/hibernate.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleUrlService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cki/filter/UniqueService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleDetailService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleResourceService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/it7890/orange/test/JettyServletExampleServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/util/RedisQueueUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/GrabDetailRuleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleListService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/Bootstrap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabListRuleServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabDetailRuleServlet.java" />
       </list>
     </option>
   </component>
@@ -129,7 +461,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -142,164 +473,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange_news_fetch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orange" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -312,9 +490,20 @@
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.it7890.orange.servlet" />
+      <recent name="com.it7890.orange.entity" />
+      <recent name="com.it7890.orange.test" />
+      <recent name="com.it7890.orange.util" />
+      <recent name="com.it7890.orange.fetch" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/it7890/orange/query" />
+      <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/.idea" />
       <recent name="$PROJECT_DIR$/src/main/java/com/nian30/toupai/entity" />
     </key>
   </component>
@@ -327,6 +516,66 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="com.it7890.orange.fetch.Bootstrap" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="orange_news_fetch" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.it7890.orange.qiniu.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.it7890.orange.qiniu.test.Demo" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="orange_news_fetch" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="JettyExampleServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.it7890.orange.qiniu.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.it7890.orange.qiniu.test.JettyExampleServer" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="orange_news_fetch" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="JettyServletExampleServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.it7890.orange.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.it7890.orange.test.JettyServletExampleServer" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -719,13 +968,19 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <list size="1">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.Bootstrap" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Demo" />
+      <item index="2" class="java.lang.String" itemvalue="Application.JettyExampleServer" />
+      <item index="3" class="java.lang.String" itemvalue="Application.JettyServletExampleServer" />
     </list>
     <recent_temporary>
-      <list size="2">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Application.Bootstrap" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Bootstrap" />
+        <item index="1" class="java.lang.String" itemvalue="Application.JettyServletExampleServer" />
+        <item index="2" class="java.lang.String" itemvalue="Application.JettyExampleServer" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Demo" />
+        <item index="4" class="java.lang.String" itemvalue="Application.Bootstrap" />
       </list>
     </recent_temporary>
   </component>
@@ -750,20 +1005,88 @@
       <workItem from="1495004212122" duration="10527000" />
       <workItem from="1495070217334" duration="13419000" />
       <workItem from="1495094550573" duration="1149000" />
-      <workItem from="1495096553268" duration="431000" />
+      <workItem from="1495096553268" duration="831000" />
+      <workItem from="1495098275360" duration="1694000" />
+      <workItem from="1495099984374" duration="6837000" />
+      <workItem from="1495115919299" duration="1935000" />
+      <workItem from="1495156703461" duration="32780000" />
+      <workItem from="1495203925264" duration="598000" />
+      <workItem from="1495416872984" duration="33065000" />
+      <workItem from="1495469965298" duration="597000" />
+      <workItem from="1495506380048" duration="25227000" />
+      <workItem from="1495588875400" duration="25951000" />
+      <workItem from="1495635442635" duration="12000" />
+      <workItem from="1495676342214" duration="21868000" />
+      <workItem from="1495762195183" duration="2891000" />
+      <workItem from="1495849200343" duration="490000" />
+      <workItem from="1495969608514" duration="598000" />
+      <workItem from="1496194709356" duration="7026000" />
+      <workItem from="1496281299875" duration="12517000" />
+      <workItem from="1496367873987" duration="12627000" />
+      <workItem from="1496627313572" duration="8298000" />
+      <workItem from="1496713809274" duration="3554000" />
+      <workItem from="1496799418348" duration="2508000" />
+      <workItem from="1496885944001" duration="598000" />
+      <workItem from="1496972640934" duration="6776000" />
+      <workItem from="1497013898243" duration="598000" />
+      <workItem from="1497231814309" duration="31419000" />
+      <workItem from="1497318003032" duration="13391000" />
     </task>
+    <task id="LOCAL-00001" summary="更新">
+      <created>1495798137202</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1495798137203</updated>
+    </task>
+    <task id="LOCAL-00002" summary="更新2">
+      <created>1495798177477</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1495798177478</updated>
+    </task>
+    <task id="LOCAL-00003" summary="备注">
+      <created>1496196702288</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496196702288</updated>
+    </task>
+    <task id="LOCAL-00004" summary="提交依赖的jar文件">
+      <created>1496303308781</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1496303308781</updated>
+    </task>
+    <task id="LOCAL-00005" summary="svn to git">
+      <created>1496303330008</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1496303330008</updated>
+    </task>
+    <task id="LOCAL-00006" summary="抓取规则">
+      <created>1497237249507</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1497237249507</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40137000" />
+    <option name="totallyTimeSpent" value="294392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="988" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51785713" sideWeight="0.5106496" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -777,16 +1100,17 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36607143" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.171875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6473214" sideWeight="0.48935038" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26517573" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41629463" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -800,8 +1124,20 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <MESSAGE value="更新" />
+    <MESSAGE value="更新2" />
+    <MESSAGE value="备注" />
+    <MESSAGE value="提交依赖的jar文件" />
+    <MESSAGE value="svn to git" />
+    <MESSAGE value="抓取规则" />
+    <option name="LAST_COMMIT_MESSAGE" value="抓取规则" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -809,290 +1145,417 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/TopicProcessNotify.java">
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="11" column="37" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="11" selection-end-column="37" />
+          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/TopicResources.java">
+    <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="11" selection-end-column="32" />
+        <state relative-caret-position="-375">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/lib.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/orange_news_fetch.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="733">
+          <caret line="1332" column="16" lean-forward="false" selection-start-line="1332" selection-start-column="16" selection-end-line="1332" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/JsonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/it7890/orange/test/Demo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabListRuleEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="150" column="5" lean-forward="false" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/service/MediaInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/MediaInfoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/service/GrabDetailRuleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/GrabDetailRuleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="58" lean-forward="false" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#518#519#0" expanded="false" />
+            <element signature="e#571#572#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/service/impl/GrabListRuleServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabDetailRuleEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="44" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+          <folding>
+            <element signature="e#2409#2410#0" expanded="false" />
+            <element signature="e#2458#2459#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/log4j-1.2.17.jar!/org/apache/log4j/LogManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/java-sdk-0.1.6.jar!/com/avos/avoscloud/internal/impl/Log4j2Implementation.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/slf4j-log4j12-1.7.25.jar!/org/slf4j/impl/Log4jLoggerFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/SearchServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="29" column="58" lean-forward="false" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../ck_gmw_crawl_app_new/lib/fastjson-1.2.7.jar!/com/alibaba/fastjson/JSON.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="63" column="25" lean-forward="false" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/jsoup-1.8.1.jar!/org/jsoup/Jsoup.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="36" column="29" lean-forward="false" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/filter/BloomFilterSeenDetector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/service/GrabListRuleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/Topic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/TopicFetchResources.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="11" column="25" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/SiteUrlConfigRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicProcessNotifyRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicFetchResourcesRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicResourcesRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/quartz/QuartzJob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/quartz/QuartzTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/quartz/QuartzManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/springside/modules/orm/hibernate/HibernateWebUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/TopicFetchRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/base/spring/Properties.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/base/spring/NoTxFacade.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/FetchArticle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="105">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/base/spring/NoTxService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/ConArticleDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/GrabListRuleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/base/spring/AnnotationBeanPostProcessor.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/ResponseUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/base/spring/Facade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="555">
+          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/springside/modules/orm/hibernate/HibernateDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabDetailRule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="36" column="43" lean-forward="true" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/springside/modules/orm/hibernate/SimpleHibernateDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/TopicFetch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="28" />
+        <state relative-caret-position="135">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="20" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/entity/GrabListRule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/mail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spider.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/query/GrabDetailRuleQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="29" selection-end-column="11" />
+        <state relative-caret-position="75">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/query/GrabListRuleQuery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/fetch/analysis/AnalysisQQSkyPaging.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/fetch/analysis/AnalysisSpiderData.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/BaseAnalysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="68" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="68" />
+        <state relative-caret-position="75">
+          <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/fetch/util/SpiderUrlUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3748">
+          <caret line="994" column="62" lean-forward="false" selection-start-line="994" selection-start-column="45" selection-end-line="994" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/filter/Filter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cki/filter/UniqueService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleDetailService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="390">
+          <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
+          <folding>
+            <element signature="e#2232#3080#0" expanded="true" />
+            <element signature="e#3079#3080#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/orange_api.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleResourceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+        <state relative-caret-position="315">
+          <caret line="55" column="54" lean-forward="false" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jsoup-1.8.1.jar!/org/jsoup/select/Selector.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/RedisQueueUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jsoup-1.8.1.jar!/org/jsoup/nodes/Element.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="169" column="27" lean-forward="false" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/UserInfoRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/db/repository/SiteUrlItemRepository.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/fetch/analysis/Analysis6188Detail.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/quartz/QuartzDataSupplyTask.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/topic/test/TopicTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/quartz/StartQuartz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/nian30/toupai/util/RandomUserUtil.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/QiNiuApiUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-71">
-          <caret line="318" column="73" lean-forward="false" selection-start-line="318" selection-start-column="73" selection-end-line="318" selection-end-column="73" />
+        <state relative-caret-position="105">
+          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/RedisConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="64" lean-forward="false" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/jsoup-1.8.1.jar!/org/jsoup/select/Elements.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/common.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/hibernate.xml.backup">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/test/hibernate.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-213">
-          <caret line="52" column="64" lean-forward="false" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/test/common.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.project">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/util/QiNiuConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="45" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleUrlService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/it7890/orange/test/JettyServletExampleServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="152" column="0" lean-forward="true" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state relative-caret-position="540">
+          <caret line="36" column="7" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="36" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/dao/GrabDetailRuleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/common.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/orange_api.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/Bootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/Bootstrap.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabDetailRuleServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="964">
+          <caret line="119" column="17" lean-forward="false" selection-start-line="119" selection-start-column="17" selection-end-line="119" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/servlet/CheckGrabListRuleServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="113" lean-forward="false" selection-start-line="53" selection-start-column="113" selection-end-line="53" selection-end-column="113" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2101#2117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/it7890/orange/fetch/FetchArticleListService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="115" column="11" lean-forward="true" selection-start-line="115" selection-start-column="11" selection-end-line="115" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1113,7 +1576,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Spring</last-edited>
+          <last-edited>Spring (orange_news_fetch)|Spring</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1148,12 +1611,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>toupai-fetch</last-edited>
+          <last-edited>orange_news_fetch</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1173,6 +1635,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

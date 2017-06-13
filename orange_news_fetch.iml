@@ -1239,7 +1239,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -1288,7 +1287,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/slf4j-api-1.7.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jetty-io-9.4.6.v20170531.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -1297,7 +1296,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/slf4j-log4j12-1.7.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jetty-security-9.4.6.v20170531.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -1315,7 +1314,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jetty-io-9.4.6.v20170531.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/log4j-api-2.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -1324,7 +1323,16 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jetty-security-9.4.6.v20170531.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/slf4j-api-1.7.25.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/slf4j-log4j12-1.7.25.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
