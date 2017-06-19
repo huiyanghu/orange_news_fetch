@@ -26,12 +26,28 @@ public class GrabDetailRuleDao {
 		return grabDetailRules;
 	}
 
+	public AVObject getGrabDetailRuleByObjectId(String objectId) {
+		AVObject grabDetail = null;
+		if (StringUtil.isNotEmpty(objectId)) {
+			try {
+				AVCloudQueryResult queryResult = AVQuery.doCloudQuery("select include grabListRuleObj, * from GrabDetailRule where objectId = ?", GrabListRule.class, objectId);
+				List<AVObject> grabDetailRules = (List<AVObject>) queryResult.getResults();
+				if (null != grabDetailRules && grabDetailRules.size() > 0) {
+					grabDetail = grabDetailRules.get(0);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return grabDetail;
+	}
+
 	public AVObject getGrabDetailRuleByLid(String listRuleId) {
 		AVObject grabDetail = null;
 		if (StringUtil.isNotEmpty(listRuleId)) {
-			AVCloudQueryResult queryResult = null;
 			try {
-				queryResult = AVQuery.doCloudQuery("select * from GrabDetailRule where grabListRuleObj = pointer('GrabListRule', ?)", GrabListRule.class, listRuleId);
+				AVCloudQueryResult queryResult = AVQuery.doCloudQuery("select * from GrabDetailRule where grabListRuleObj = pointer('GrabListRule', ?)", GrabListRule.class, listRuleId);
 				List<AVObject> grabDetailRules = (List<AVObject>) queryResult.getResults();
 				if (null != grabDetailRules && grabDetailRules.size() > 0) {
 					grabDetail = grabDetailRules.get(0);

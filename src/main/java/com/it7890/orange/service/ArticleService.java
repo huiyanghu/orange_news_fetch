@@ -12,4 +12,6 @@ import javax.annotation.Resource;
 public interface ArticleService {
 
 	String saveConArticle(AVObject conArticle, String articleContent);
+
+	boolean getExistArticleBySalt(String salt);
 }

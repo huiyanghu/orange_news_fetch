@@ -13,7 +13,7 @@ public interface Constants {
 
 	BlockingQueue<FetchArticle> FETCH_ARTICLE_MEDIA_QUEUE = new LinkedBlockingQueue<FetchArticle>();
 
-	String RESOURCE_TMP_PATH = "resourceTmpPath";
+	long SLEEP_MILLIS = 20 * 60 * 1000; // 暂停20分钟
 
 	/**
 	 * leancloud key

@@ -12,6 +12,8 @@ public class GrabDetailRule {
 	private String titleCssPath;    //文章标题区域规则
 	private String descCssPath;     //文章描述区域规则
 	private String conCssPath;      //文章内容区域规则
+	private String conCssPath2;      //文章内容区域规则
+	private String conCssPath3;      //文章内容区域规则
 	private String replaceCssPath;  //剔除内容区域规则
 	private String souCssPath;      //来源区域规则
 	private String imgCssPath;      //图片规则
@@ -114,5 +116,21 @@ public class GrabDetailRule {
 
 	public void setGrabListRuleObj(AVObject grabListRuleObj) {
 		this.grabListRuleObj = grabListRuleObj;
+	}
+
+	public String getConCssPath2() {
+		return conCssPath2;
+	}
+
+	public void setConCssPath2(String conCssPath2) {
+		this.conCssPath2 = conCssPath2;
+	}
+
+	public String getConCssPath3() {
+		return conCssPath3;
+	}
+
+	public void setConCssPath3(String conCssPath3) {
+		this.conCssPath3 = conCssPath3;
 	}
 }

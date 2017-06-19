@@ -28,4 +28,9 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 		return articleId;
 	}
+
+	@Override
+	public boolean getExistArticleBySalt(String salt) {
+		return conArticleDao.getExistArticleBySalt(salt);
+	}
 }

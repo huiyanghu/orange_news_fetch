@@ -3,15 +3,14 @@
 
 	<property resource="orange_api.properties" />
 
-	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<Encoding>UTF-8</Encoding>
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<pattern>%date{HH:mm:ss.SSS} [%thread] %-5level [%logger{20}] %L - %msg%n</pattern>
 		</layout>
 	</appender>
 
-	<appender name="logfile"
-		class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<Encoding>UTF-8</Encoding>
 		<File>${project.base}${log.base}orange_news_fetch.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -24,8 +23,8 @@
 
 	<root>
 		<level value="INFO" />
-		<appender-ref ref="logfile" />
-		<level value="DEBUG" />
-		<appender-ref ref="stdout"/>
+		<appender-ref ref="FILE" />
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>
