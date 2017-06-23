@@ -22,7 +22,7 @@ public class FetchTestService {
 
 	@PostConstruct
 	public void init() {
-		urlSearch("https://blog.wilddog.com/");
+		urlSearch("https://cn.nytstyle.com/style/20170608/cold-brew-coffee/zh-hant/");
 	}
 
 	private void urlSearch(String siteUrl) {

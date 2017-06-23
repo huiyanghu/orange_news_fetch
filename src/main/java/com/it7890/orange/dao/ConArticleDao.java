@@ -24,7 +24,7 @@ public class ConArticleDao {
 				articleId = articleInfo.getObjectId();
 			} catch (AVException e) {
 				e.printStackTrace();
-				logger.warn("保存文章出错，cause: {}", e);
+				logger.warn("saveConArticle，cause: {}", e);
 			}
 		}
 		return articleId;
@@ -47,6 +47,7 @@ public class ConArticleDao {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+				logger.warn("getExistArticleBySalt，cause: {}", e);
 			}
 		}
 		return isExist;

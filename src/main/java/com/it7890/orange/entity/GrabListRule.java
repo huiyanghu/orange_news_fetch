@@ -25,6 +25,12 @@ public class GrabListRule {
 	private String titlePicCssPath;//标题图片规则
 	private int grabTime;         //抓取周期秒
 
+	private int fetchNextPage;     //是否抓取下一页 1是 0否
+	private String targetCssPath;  //指定抓取
+	private String itemCssPath;    //列表项规则
+	private String itemLinkCssPath;//列表项链接规则
+	private String itemTitlePicCssPath;//文章标题图片规则
+
 	private GrabDetailRule grabDetailRule;
 
 	public String getObjectId() {
@@ -161,5 +167,45 @@ public class GrabListRule {
 
 	public void setGrabDetailRule(GrabDetailRule grabDetailRule) {
 		this.grabDetailRule = grabDetailRule;
+	}
+
+	public int getFetchNextPage() {
+		return fetchNextPage;
+	}
+
+	public void setFetchNextPage(int fetchNextPage) {
+		this.fetchNextPage = fetchNextPage;
+	}
+
+	public String getItemCssPath() {
+		return itemCssPath;
+	}
+
+	public void setItemCssPath(String itemCssPath) {
+		this.itemCssPath = itemCssPath;
+	}
+
+	public String getItemLinkCssPath() {
+		return itemLinkCssPath;
+	}
+
+	public void setItemLinkCssPath(String itemLinkCssPath) {
+		this.itemLinkCssPath = itemLinkCssPath;
+	}
+
+	public String getItemTitlePicCssPath() {
+		return itemTitlePicCssPath;
+	}
+
+	public void setItemTitlePicCssPath(String itemTitlePicCssPath) {
+		this.itemTitlePicCssPath = itemTitlePicCssPath;
+	}
+
+	public String getTargetCssPath() {
+		return targetCssPath;
+	}
+
+	public void setTargetCssPath(String targetCssPath) {
+		this.targetCssPath = targetCssPath;
 	}
 }

@@ -10,7 +10,8 @@ import java.io.IOException;
 public class Demo {
 
 	public static void main(String[] args) {
-		Connection conn = Jsoup.connect("https://www.wowlavie.com/life.php");
+//		Connection conn = Jsoup.connect("https://cn.nytstyle.com/style/20170608/cold-brew-coffee/zh-hant/");
+		Connection conn = Jsoup.connect("https://cn.nytstyle.com/");
 		conn.timeout(50 * 1000);
 		conn.ignoreContentType(true);
 		conn.ignoreHttpErrors(true);

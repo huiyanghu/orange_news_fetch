@@ -17,7 +17,7 @@ public class GrabDetailRuleDao {
 	public List<AVObject> findGrabDetailRules() {
 		List<AVObject> grabDetailRules = new ArrayList<>();
 		try {
-			AVCloudQueryResult queryResult = AVQuery.doCloudQuery("select * from GrabDetailRule limit 1000", GrabListRule.class);
+			AVCloudQueryResult queryResult = AVQuery.doCloudQuery("select * from GrabDetailRule where flag = 1 limit 1000", GrabListRule.class);
 			grabDetailRules = (List<AVObject>) queryResult.getResults();
 		} catch (Exception e) {
 			e.printStackTrace();

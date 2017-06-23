@@ -69,7 +69,7 @@ public class CheckGrabDetailRuleController {
 				Map<String, String> grabDetailRuleMap = JSON.parseObject(grabDetailRuleStr, Map.class);
 				if (null != grabDetailRuleMap) {
 					Document doc;
-					String fetchUrl = grabDetailRuleMap.get("testUrl");
+					String fetchUrl = grabDetailRuleMap.get("testUrl").trim();
 					if (fetchUrl.toLowerCase().startsWith("https://")) {
 						Connection conn = Jsoup.connect(fetchUrl);
 						conn.userAgent(UserAgentUtil.getUserAgent());
@@ -77,7 +77,7 @@ public class CheckGrabDetailRuleController {
 						conn.ignoreContentType(true);
 						conn.ignoreHttpErrors(true);
 						conn.timeout(50 * 1000);
-						doc = conn.post();
+						doc = conn.get();
 					}else {
 						SpiderUrl spiderUrl = SpiderUrlUtil.buildSpiderUrl(fetchUrl);
 						spiderUrl.setConnectionTimeoutInMillis(50 * 1000);
@@ -90,43 +90,45 @@ public class CheckGrabDetailRuleController {
 					FetchArticleDetailService.cleanElement(doc, "noscript");
 					FetchArticleDetailService.cleanElement(doc, "meta");
 
-					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("authorCssPath"))) {
+					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("authorCssPath").trim())) {
 						Elements authorEles = doc.select(grabDetailRuleMap.get("authorCssPath"));
 						if (null != authorEles && authorEles.size() > 0) {
 							author = authorEles.get(0).text();
 						}
 					}
-					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("titleCssPath"))) {
-						Elements titleEles = doc.select(grabDetailRuleMap.get("titleCssPath"));
+					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("titleCssPath").trim())) {
+						Elements titleEles = doc.select(grabDetailRuleMap.get("titleCssPath").trim());
 						if (null != titleEles && titleEles.size() > 0) {
 							articleTitle = titleEles.get(0).text();
 							logger.debug("文章标题： {}"+ articleTitle);
 						}
 					}
-					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("descCssPath"))) {
-						Elements descEles = doc.select(grabDetailRuleMap.get("descCssPath"));
+					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("descCssPath").trim())) {
+						Elements descEles = doc.select(grabDetailRuleMap.get("descCssPath").trim());
 						if (null != descEles && descEles.size() > 0) {
 							articleDescribe = descEles.get(0).text();
 						}
 					}
-					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("keywordCssPath"))) {
-						Elements keywordEles = doc.select(grabDetailRuleMap.get("keywordCssPath"));
+					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("keywordCssPath").trim())) {
+						Elements keywordEles = doc.select(grabDetailRuleMap.get("keywordCssPath").trim());
 						if (null != keywordEles && keywordEles.size() > 0) {
 							keyword = keywordEles.get(0).text();
 						}
 					}
 
-					logger.info("grabDetailRuleMap.get(\"conCssPath\")  " + grabDetailRuleMap.get("conCssPath"));
-					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("conCssPath"))) {
-						Elements contEles = doc.select(grabDetailRuleMap.get("conCssPath"));
+					logger.info("grabDetailRuleMap.get(\"conCssPath\")  " + grabDetailRuleMap.get("conCssPath").trim());
+					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("conCssPath").trim())) {
+						Elements contEles = doc.select(grabDetailRuleMap.get("conCssPath").trim());
 						logger.info("contEles:     " + contEles);
 						if (null != contEles && contEles.size() > 0) {
 							// 移除特定规则的内容
-							if (StringUtil.isNotEmpty(grabDetailRuleMap.get("replaceCssPath"))) {
+							if (StringUtil.isNotEmpty(grabDetailRuleMap.get("replaceCssPath").trim())) {
 								// 多个规则见用"&&"分隔
 								String[] replaceCssList = grabDetailRuleMap.get("replaceCssPath").trim().split("&&");
 								for (String replaceItem : replaceCssList) {
-									doc.select(replaceItem).remove();
+									if (StringUtil.isNotEmpty(replaceItem.trim())) {
+										doc.select(replaceItem.trim()).remove();
+									}
 								}
 							}
 
@@ -135,39 +137,33 @@ public class CheckGrabDetailRuleController {
 							logger.debug("文章内容中的图片>>>>>>{}"+ imgEles);
 							if (null != imgEles && imgEles.size() > 0) {
 								for (Element imgEle : imgEles) {
-									Attributes imgAttrs = imgEle.attributes();
-									// 删除标签中多余属性
-									for (Attribute imgAttr : imgAttrs) {
-										String attrKey = imgAttr.getKey();
-										if (!"src".equals(attrKey.toLowerCase())) {
-											imgAttrs.remove(attrKey);
-										}
-									}
 									String contentImageUrl = imgEle.attr("src");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
 										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 
-										if (StringUtil.isEmpty(articleTitleImageUrl)) {
+										if (StringUtil.isNotEmpty(articleTitleImageUrl)) {
 											articleTitleImageUrl = contentImageUrl;
 										}
 									}
 								}
 							}
-							articleContent = FetchArticleDetailService.genTextOrHTMLByCssPath(doc, grabDetailRuleMap.get("conCssPath"), fetchUrl, false);
+							articleContent = FetchArticleDetailService.genTextOrHTMLByCssPath(doc, grabDetailRuleMap.get("conCssPath").trim(), fetchUrl, false);
 							articleContent = HtmlUtil.cleanHtml(articleContent); // 移除文章内容中的超链接
 						}
 					}
 
 					logger.info("2222222222222221232");
-					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("conCssPath2"))) {
-						Elements contEles = doc.select(grabDetailRuleMap.get("conCssPath2"));
+					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("conCssPath2").trim())) {
+						Elements contEles = doc.select(grabDetailRuleMap.get("conCssPath2").trim());
 						if (null != contEles && contEles.size() > 0) {
 							// 移除特定规则的内容
-							if (StringUtil.isNotEmpty(grabDetailRuleMap.get("replaceCssPath"))) {
+							if (StringUtil.isNotEmpty(grabDetailRuleMap.get("replaceCssPath").trim())) {
 								// 多个规则见用"&&"分隔
 								String[] replaceCssList = grabDetailRuleMap.get("replaceCssPath").trim().split("&&");
 								for (String replaceItem : replaceCssList) {
-									doc.select(replaceItem).remove();
+									if (StringUtil.isNotEmpty(replaceItem.trim())) {
+										doc.select(replaceItem.trim()).remove();
+									}
 								}
 							}
 
@@ -176,39 +172,33 @@ public class CheckGrabDetailRuleController {
 							logger.debug("文章内容中的图片>>>>>>{}"+ imgEles);
 							if (null != imgEles && imgEles.size() > 0) {
 								for (Element imgEle : imgEles) {
-									Attributes imgAttrs = imgEle.attributes();
-									// 删除标签中多余属性
-									for (Attribute imgAttr : imgAttrs) {
-										String attrKey = imgAttr.getKey();
-										if (!"src".equals(attrKey.toLowerCase())) {
-											imgAttrs.remove(attrKey);
-										}
-									}
 									String contentImageUrl = imgEle.attr("src");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
 										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 
-										if (StringUtil.isEmpty(articleTitleImageUrl)) {
+										if (StringUtil.isNotEmpty(articleTitleImageUrl)) {
 											articleTitleImageUrl = contentImageUrl;
 										}
 									}
 								}
 							}
-							articleContent2 = FetchArticleDetailService.genTextOrHTMLByCssPath(doc, grabDetailRuleMap.get("conCssPath2"), fetchUrl, false);
+							articleContent2 = FetchArticleDetailService.genTextOrHTMLByCssPath(doc, grabDetailRuleMap.get("conCssPath2").trim(), fetchUrl, false);
 							articleContent2 = HtmlUtil.cleanHtml(articleContent2); // 移除文章内容中的超链接
 						}
 					}
 
 					logger.info("3333333333333333333333");
-					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("conCssPath3"))) {
-						Elements contEles = doc.select(grabDetailRuleMap.get("conCssPath3"));
+					if (StringUtil.isNotEmpty(grabDetailRuleMap.get("conCssPath3").trim())) {
+						Elements contEles = doc.select(grabDetailRuleMap.get("conCssPath3").trim());
 						if (null != contEles && contEles.size() > 0) {
 							// 移除特定规则的内容
-							if (StringUtil.isNotEmpty(grabDetailRuleMap.get("replaceCssPath"))) {
+							if (StringUtil.isNotEmpty(grabDetailRuleMap.get("replaceCssPath").trim())) {
 								// 多个规则见用"&&"分隔
 								String[] replaceCssList = grabDetailRuleMap.get("replaceCssPath").trim().split("&&");
 								for (String replaceItem : replaceCssList) {
-									doc.select(replaceItem).remove();
+									if (StringUtil.isNotEmpty(replaceItem.trim())) {
+										doc.select(replaceItem.trim()).remove();
+									}
 								}
 							}
 
@@ -217,14 +207,6 @@ public class CheckGrabDetailRuleController {
 							logger.debug("文章内容中的图片>>>>>>{}"+ imgEles);
 							if (null != imgEles && imgEles.size() > 0) {
 								for (Element imgEle : imgEles) {
-									Attributes imgAttrs = imgEle.attributes();
-									// 删除标签中多余属性
-									for (Attribute imgAttr : imgAttrs) {
-										String attrKey = imgAttr.getKey();
-										if (!"src".equals(attrKey.toLowerCase())) {
-											imgAttrs.remove(attrKey);
-										}
-									}
 									String contentImageUrl = imgEle.attr("src");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
 										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
@@ -235,7 +217,7 @@ public class CheckGrabDetailRuleController {
 									}
 								}
 							}
-							articleContent3 = FetchArticleDetailService.genTextOrHTMLByCssPath(doc, grabDetailRuleMap.get("conCssPath3"), fetchUrl, false);
+							articleContent3 = FetchArticleDetailService.genTextOrHTMLByCssPath(doc, grabDetailRuleMap.get("conCssPath3").trim(), fetchUrl, false);
 							articleContent3 = HtmlUtil.cleanHtml(articleContent3); // 移除文章内容中的超链接
 						}
 					}

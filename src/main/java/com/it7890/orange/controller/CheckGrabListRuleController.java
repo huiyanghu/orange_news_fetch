@@ -10,13 +10,13 @@ import com.it7890.orange.util.HtmlUtil;
 import com.it7890.orange.util.ResponseUtil;
 import com.it7890.orange.util.StringUtil;
 import com.it7890.orange.util.UserAgentUtil;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +38,7 @@ import java.util.Map;
 @Controller
 public class CheckGrabListRuleController {
 
-	private final static Logger logger = LogManager.getLogger(CheckGrabListRuleController.class);
+	private final static Logger logger = LoggerFactory.getLogger(CheckGrabListRuleController.class);
 
 	@Autowired
 	private Spider<SpiderData> spider;
@@ -64,12 +64,15 @@ public class CheckGrabListRuleController {
 				Map<String, String> grabListRuleMap = JSON.parseObject(grabListRuleStr, Map.class);
 				if (null != grabListRuleMap) {
 					Document doc;
-					String siteUrl = grabListRuleMap.get("siteUrl");
+					String siteUrl = grabListRuleMap.get("siteUrl").trim();
 					if (siteUrl.toLowerCase().startsWith("https://")) {
 						Connection conn = Jsoup.connect(siteUrl);
 						conn.userAgent(UserAgentUtil.getUserAgent());
+						conn.validateTLSCertificates(false);
+						conn.ignoreContentType(true);
+						conn.ignoreHttpErrors(true);
 						conn.timeout(50 * 1000);
-						doc = conn.post();
+						doc = conn.get();
 					}else {
 						SpiderUrl fetchUrl = SpiderUrlUtil.buildSpiderUrl(siteUrl);
 						fetchUrl.setConnectionTimeoutInMillis(100 * 1000);
@@ -83,12 +86,12 @@ public class CheckGrabListRuleController {
 					FetchArticleDetailService.cleanElement(doc, "noscript");
 					FetchArticleDetailService.cleanElement(doc, "meta");
 
-					Elements contentElements = doc.select(grabListRuleMap.get("cssPath"));
+					Elements contentElements = doc.select(grabListRuleMap.get("cssPath").trim());
 					logger.debug("content element size: {}"+ contentElements.size());
 
 					if (contentElements.size() > 0) {
-						if (StringUtil.isNotEmpty(grabListRuleMap.get("findPre"))) {
-							Elements articleElements = contentElements.select("a[href~=" + grabListRuleMap.get("findPre") + "]");
+						if (StringUtil.isNotEmpty(grabListRuleMap.get("findPre").trim())) {
+							Elements articleElements = contentElements.select("a[href~=" + grabListRuleMap.get("findPre").trim() + "]");
 							for (Element articleElement : articleElements) {
 								String articleUrl = articleElement.attr("href");
 								articleUrl = HtmlUtil.getRemoteUrl(siteUrl, articleUrl);

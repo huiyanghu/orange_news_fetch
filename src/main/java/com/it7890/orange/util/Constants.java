@@ -13,7 +13,7 @@ public interface Constants {
 
 	BlockingQueue<FetchArticle> FETCH_ARTICLE_MEDIA_QUEUE = new LinkedBlockingQueue<FetchArticle>();
 
-	long SLEEP_MILLIS = 20 * 60 * 1000; // 暂停20分钟
+	long SLEEP_MILLIS = 10 * 60 * 1000;
 
 	/**
 	 * leancloud key
