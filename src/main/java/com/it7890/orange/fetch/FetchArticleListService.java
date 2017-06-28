@@ -296,6 +296,7 @@ public class FetchArticleListService {
 				nextUrl = matcher.group(1);
 			}
 			if (StringUtil.isNotEmpty(nextUrl)) {
+				nextUrl = HtmlUtil.getRemoteUrl(siteUrl, nextUrl);
 				logger.debug("next page url ====================>>>>{}", nextUrl);
 				try {
 					grabListRulInfo.setSiteUrl(nextUrl);
