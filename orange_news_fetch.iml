@@ -656,17 +656,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="netty-3.2.3.Final.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/netty-3.2.3.Final.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://d:/maven/repository/org/jboss/netty/netty/3.2.3.Final/netty-3.2.3.Final-sources.jar" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="nlp-1.0-cki.jar">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/nlp-1.0-cki.jar!/" />
@@ -1159,15 +1148,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="jsoup-1.8.1.jar">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/jsoup-1.8.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/java-sdk-0.1.6.jar!/" />
@@ -1225,15 +1205,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/okio-leancloud-1.6.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/qiniu-java-sdk-7.2.6.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -1305,7 +1276,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/log4j-1.2.17.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jetty-webapp-9.4.6.v20170531.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -1314,7 +1285,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/log4j-api-2.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jetty-xml-9.4.6.v20170531.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -1323,7 +1294,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/slf4j-api-1.7.25.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/spring-webmvc-3.0.1.RELEASE.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -1332,7 +1303,70 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib/slf4j-log4j12-1.7.25.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/netty-3.2.3.Final.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jsoup-1.10.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/log4j-over-slf4j-1.5.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/logback-classic-0.9.17.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/logback-core-0.9.17.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/slf4j-api-1.5.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/log4j-api-2.8.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/log4j-core-2.8.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

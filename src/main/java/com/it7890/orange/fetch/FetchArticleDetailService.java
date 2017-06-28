@@ -72,7 +72,7 @@ public class FetchArticleDetailService {
 					try {
 						fetchArticleInfo = Constants.FETCH_ARTICLE_QUEUE.take();
 
-						logger.info("detail queue  url: {}", fetchArticleInfo.getSourceUrl());
+						logger.info("detail queue  url: {}, FETCH_ARTICLE_QUEUE size: {}", fetchArticleInfo.getSourceUrl(), Constants.FETCH_ARTICLE_QUEUE.size());
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -96,17 +96,17 @@ public class FetchArticleDetailService {
 		String fetchUrl = fetchArticleInfo.getSourceUrl();
 		if (fetchUrl.toLowerCase().startsWith("https://")) {
 			Connection conn = Jsoup.connect(fetchUrl);
-			conn.userAgent(UserAgentUtil.getUserAgent());
+			conn.userAgent(Constants.USER_AGENT);
 			conn.validateTLSCertificates(false);
 			conn.ignoreContentType(true);
 			conn.ignoreHttpErrors(true);
 			conn.timeout(30 * 1000);
 			try {
 				Document document = conn.get();
-				logger.debug("fetch result: {}, {}, {}", new Object[]{fetchUrl, fetchArticleInfo.getGrabListRule().getObjectId(), fetchArticleInfo.getGrabDetailRuleInfo().getObjectId()});
 				analysisArticle(document, fetchArticleInfo, articleService);
 			} catch (IOException e) {
 				e.printStackTrace();
+				logger.warn("FetchArticleDetailService urlSearch exception, cause: {}", e.getMessage());
 			} finally {
 				limit.release();
 			}
@@ -171,7 +171,7 @@ public class FetchArticleDetailService {
 				String articleDescribe = "";
 				String articleTitle = "";
 
-				StringBuffer sbArticleContent = new StringBuffer();
+				StringBuilder sbArticleContent = new StringBuilder();
 				String content;
 				String articleSourceUrl = fetchArticleInfo.getSourceUrl();
 				if (StringUtil.isNotEmpty(grabDetailRuleInfo.getAuthorCssPath())) {
@@ -184,7 +184,7 @@ public class FetchArticleDetailService {
 					Elements titleEles = doc.select(grabDetailRuleInfo.getTitleCssPath());
 					if (null != titleEles && titleEles.size() > 0) {
 						articleTitle = titleEles.get(0).text();
-						logger.debug("article title： {}", articleTitle);
+							logger.info("article title： {}", articleTitle);
 					}
 				}
 				if (StringUtil.isNotEmpty(grabDetailRuleInfo.getDescCssPath())) {
@@ -215,18 +215,21 @@ public class FetchArticleDetailService {
 								if (null != imgEle && null != imgEle.attributes()) {
 									String contentImageUrl = imgEle.attr("data-original");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 										contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 										contentImageUrls.add(contentImageUrl);
 										continue;
 									}
 									contentImageUrl = imgEle.attr("data-url");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 										contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 										contentImageUrls.add(contentImageUrl);
 										continue;
 									}
 									contentImageUrl = imgEle.attr("src");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 										contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 										contentImageUrls.add(contentImageUrl);
 									}
@@ -264,18 +267,21 @@ public class FetchArticleDetailService {
 							for (Element imgEle : imgEles) {
 								String contentImageUrl = imgEle.attr("data-original");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
+									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 									contentImageUrls.add(contentImageUrl);
 									continue;
 								}
 								contentImageUrl = imgEle.attr("data-url");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
+									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 									contentImageUrls.add(contentImageUrl);
 									continue;
 								}
 								contentImageUrl = imgEle.attr("src");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
+									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 									contentImageUrls.add(contentImageUrl);
 								}
@@ -313,18 +319,21 @@ public class FetchArticleDetailService {
 							for (Element imgEle : imgEles) {
 								String contentImageUrl = imgEle.attr("data-original");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
+									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 									contentImageUrls.add(contentImageUrl);
 									continue;
 								}
 								contentImageUrl = imgEle.attr("data-url");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
+									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 									contentImageUrls.add(contentImageUrl);
 									continue;
 								}
 								contentImageUrl = imgEle.attr("src");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
+									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
 									contentImageUrls.add(contentImageUrl);
 								}
@@ -389,11 +398,14 @@ public class FetchArticleDetailService {
 					// 判断文章中是否有图片(标题、内容)
 					// 1、有图片则走上传文章资源流程
 					// 2、没有图片则直接走保存文章流程
-					logger.info("article image size：{}", contentImageCount);
+					logger.info("article image size："+ contentImageCount);
 					if (contentImageCount > 0) {
 						fetchArticleInfo.setArticleInfo(articleInfo);
 						try {
+							logger.debug("1 FETCH_ARTICLE_MEDIA_QUEUE size: {}", Constants.FETCH_ARTICLE_MEDIA_QUEUE.size());
 							Constants.FETCH_ARTICLE_MEDIA_QUEUE.put(fetchArticleInfo);
+							logger.debug("2 FETCH_ARTICLE_MEDIA_QUEUE size: {}", Constants.FETCH_ARTICLE_MEDIA_QUEUE.size());
+
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 							logger.warn("re add article resource queue，cause: {}", e);
@@ -404,7 +416,7 @@ public class FetchArticleDetailService {
 						if (!articleExist) {
 							articleInfo.put("attr", 0); // 0文字新闻 1图片新闻 2视频新闻 3 连接新闻 4H5游戏新闻 5竞猜新闻 6游戏新闻
 
-							logger.info("test new articleId");
+							logger.info("<============================test new article 1============================>");
 							String articleId = articleService.saveConArticle(articleInfo, articleContent);
 							logger.info("new article id: {}", articleId);
 						} else {
@@ -419,13 +431,15 @@ public class FetchArticleDetailService {
 	}
 
 	public static void cleanElement(Document doc, String elementName) {
-		try {
-			Elements element = doc.select(elementName);
-			if (element != null) {
-				element.remove();
+		if (null != doc && StringUtil.isNotEmpty(elementName)) {
+			try {
+				Elements element = doc.select(elementName);
+				if (element != null) {
+					element.remove();
+				}
+			} catch (Exception e) {
+				logger.info("clear element fail, elementName: {}", elementName);
 			}
-		} catch (Exception e) {
-			logger.info("清除失败 elementname="+elementName);
 		}
 	}
 

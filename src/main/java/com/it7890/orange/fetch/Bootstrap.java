@@ -28,8 +28,8 @@ public class Bootstrap {
 
 	private static void startJettyServlet() {
 		try {
-//			Server server = new Server(8080);
-			Server server = new Server(80);
+			Server server = new Server(8080);
+//			Server server = new Server(80);
 
 			ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
 			context.setContextPath("/");

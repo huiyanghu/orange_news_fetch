@@ -71,32 +71,38 @@ public class FetchArticleResourceService {
 					FetchArticle fetchArticleInfo = null;
 					try {
 						fetchArticleInfo = Constants.FETCH_ARTICLE_MEDIA_QUEUE.take();
+
+						logger.info("FETCH_ARTICLE_MEDIA_QUEUE queue url: {}, size: {}", fetchArticleInfo.getSourceUrl(), Constants.FETCH_ARTICLE_MEDIA_QUEUE.size());
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 
-					if(null != fetchArticleInfo && null != fetchArticleInfo.getArticleInfo()) {
-						List<String> originTitleImageUrls = fetchArticleInfo.getOriginTitleImageUrls();
-						List<String> originContentImageUrls = fetchArticleInfo.getOriginContentImageUrls();
-						if (null != originTitleImageUrls && originTitleImageUrls.size() > 0) {
-							logger.debug("fetch title image>>>: {}", originTitleImageUrls);
-
-							String originTitleImageUrl = originTitleImageUrls.remove(0);
-							if (StringUtil.isNotEmpty(originTitleImageUrl)) {
-								urlSearch(fetchArticleInfo, originTitleImageUrl, 1);
-							}
-						} else if (null != originContentImageUrls && originContentImageUrls.size() > 0) {
-							logger.debug("fetch content image>>>：{}", originContentImageUrls);
-
-							String originContentImageUrl = originContentImageUrls.remove(0);
-							if (StringUtil.isNotEmpty(originContentImageUrl)) {
-								urlSearch(fetchArticleInfo, originContentImageUrl, 2);
-							}
-						}
-					}
+					fetchArticleInfoResource(fetchArticleInfo);
 				}
 			}
 		});		
+	}
+
+	private void fetchArticleInfoResource(FetchArticle fetchArticleInfo) {
+		if(null != fetchArticleInfo && null != fetchArticleInfo.getArticleInfo()) {
+			List<String> originTitleImageUrls = fetchArticleInfo.getOriginTitleImageUrls();
+			List<String> originContentImageUrls = fetchArticleInfo.getOriginContentImageUrls();
+			if (null != originTitleImageUrls && originTitleImageUrls.size() > 0) {
+				logger.debug("fetch title image>>>: {}", originTitleImageUrls);
+
+				String originTitleImageUrl = originTitleImageUrls.get(0);
+				if (StringUtil.isNotEmpty(originTitleImageUrl)) {
+					urlSearch(fetchArticleInfo, originTitleImageUrl, 1);
+				}
+			} else if (null != originContentImageUrls && originContentImageUrls.size() > 0) {
+				logger.debug("fetch content image>>>：{}", originContentImageUrls);
+
+				String originContentImageUrl = originContentImageUrls.get(0);
+				if (StringUtil.isNotEmpty(originContentImageUrl)) {
+					urlSearch(fetchArticleInfo, originContentImageUrl, 2);
+				}
+			}
+		}
 	}
 
 	/**
@@ -113,11 +119,15 @@ public class FetchArticleResourceService {
 			return;
 		}
 
+		logger.debug("wait download title image size: {}, content image size: {}", fetchArticleInfo.getOriginTitleImageUrls().size(), fetchArticleInfo.getOriginContentImageUrls().size());
+		logger.debug("downloadMediaUrl: {}", downloadMediaUrl);
 		if (downloadMediaUrl.toLowerCase().startsWith("https")) {
 			byte[] imageBt = ImageUtil.downloadImageByteByUrl(downloadMediaUrl);
 			limit.release();
 
-			analysisArticleResource(downloadMediaUrl, fetchArticleInfo, mediaType, imageBt);
+			if (null != imageBt) {
+				analysisArticleResource(downloadMediaUrl, fetchArticleInfo, mediaType, imageBt);
+			}
 		} else {
 			SpiderUrl fetchUrl = SpiderUrlUtil.buildSpiderUrl(downloadMediaUrl);
 			fetchUrl.setConnectionTimeoutInMillis(30 * 1000);
@@ -165,17 +175,26 @@ public class FetchArticleResourceService {
 	 * @param imageBt
 	 */
 	private void analysisArticleResource(String downloadMediaUrl, FetchArticle fetchArticleInfo, int mediaType, byte[] imageBt) {
+		logger.debug("analysisArticleResource url: {}, mediaType: {}, imageBt:{}", new Object[] {downloadMediaUrl, mediaType, imageBt.length});
+
+		// 文件后缀名
+		String fileSuffix = ImageUtil.getSuffixByUrl(downloadMediaUrl);
+		if (StringUtil.isEmpty(fileSuffix)) {
+			return;
+		}
+
 		// 从二进制文件流中读取图片宽高属性
-		int imageWidth = 0;
-		int imageHeight = 0;
-		ImageInfo imageInfo = ImageUtil.getImageInfo(imageBt);
-		if (null != imageInfo) {
-			imageWidth = imageInfo.getWidth();
-			imageHeight = imageInfo.getHeight();
+		ImageInfo imageInfo;
+		if (fileSuffix.toLowerCase().contains(".gif")) {
+			imageInfo = ImageUtil.getGifInfo(imageBt);
+		} else {
+			imageInfo = ImageUtil.getImageInfo(imageBt);
+		}
+		if (null == imageInfo) {
+			return;
 		}
 
 		// 通过AVFile构建文件数据流
-		String fileSuffix = ImageUtil.getSuffixByUrl(downloadMediaUrl);    //后缀名
 		AVFile uploadFile = new AVFile(fetchArticleInfo.getUrlSalt() + fileSuffix, imageBt);
 		boolean uploadSuccess = false;
 		try {
@@ -186,43 +205,41 @@ public class FetchArticleResourceService {
 			logger.warn("upload fail，cause: {}", e);
 		}
 
-		// 上传资料是否完成
+		// 如果上传失败，则重试一次
 		if (!uploadSuccess) {
-			logger.debug("readd upload download, url:{}", downloadMediaUrl);
-			switch (mediaType) {
-				case 1:
-					List<String> originTitleImageUrls = fetchArticleInfo.getOriginTitleImageUrls();
-					if (null == originTitleImageUrls) {
-						originTitleImageUrls = new ArrayList<>();
-					}
-					originTitleImageUrls.add(downloadMediaUrl);
-					fetchArticleInfo.setOriginTitleImageUrls(originTitleImageUrls);
-					break;
-				case 2:
-					List<String> originContentImageUrls = fetchArticleInfo.getOriginContentImageUrls();
-					if (null == originContentImageUrls) {
-						originContentImageUrls = new ArrayList<>();
-					}
-					originContentImageUrls.add(downloadMediaUrl);
-					fetchArticleInfo.setOriginContentImageUrls(originContentImageUrls);
-					break;
-			}
 			try {
-				Constants.FETCH_ARTICLE_MEDIA_QUEUE.put(fetchArticleInfo);
-			} catch (InterruptedException e) {
+				uploadFile.save();
+				uploadSuccess = true;
+			} catch (AVException e) {
 				e.printStackTrace();
-				logger.warn("readd upload download fail，cause: {}", e);
 			}
-		} else {
-			mediaInfoDao.saveMediaInfo(uploadFile.getObjectId(), imageWidth, imageHeight);
+		}
+
+		// 上传资料是否完成
+		if (uploadSuccess) {
+			mediaInfoDao.saveMediaInfo(uploadFile.getObjectId(), imageInfo.getWidth(), imageInfo.getHeight());
 
 			//修改上传完成资源的属性
 			switch (mediaType) {
 				case 1:
 					fetchArticleInfo.getTitleImageUrls().add(uploadFile);
+
+					for (String titleImageUrl : fetchArticleInfo.getOriginTitleImageUrls()) {
+						if (downloadMediaUrl.equals(titleImageUrl)) {
+							fetchArticleInfo.getOriginTitleImageUrls().remove(titleImageUrl);
+							break;
+						}
+					}
 					break;
 				case 2:
 					fetchArticleInfo.getContentImageUrls().add(uploadFile);
+
+					for (String contentImageUrl : fetchArticleInfo.getOriginContentImageUrls()) {
+						if (downloadMediaUrl.equals(contentImageUrl)) {
+							fetchArticleInfo.getOriginContentImageUrls().remove(contentImageUrl);
+							break;
+						}
+					}
 
 					String articleContent = fetchArticleInfo.getArticleContent();
 					if (StringUtil.isNotEmpty(articleContent)) {
@@ -237,7 +254,6 @@ public class FetchArticleResourceService {
 			// 1、有则加入队列继续上传
 			// 2、没有则进入保存文章流程
 			if (fetchArticleInfo.getOriginTitleImageUrls().size() == 0 && fetchArticleInfo.getOriginContentImageUrls().size() == 0) {
-				logger.debug("grabListRuleId:{}, grabDetailRuleId:{}", new Object[]{fetchArticleInfo.getGrabListRule().getObjectId(), fetchArticleInfo.getGrabDetailRuleInfo().getObjectId()});
 				String urlSalt = fetchArticleInfo.getUrlSalt();
 				boolean articleExist = conArticleDao.getExistArticleBySalt(urlSalt);
 				logger.debug("article is exists >>>>>>: {}", articleExist);
@@ -247,12 +263,12 @@ public class FetchArticleResourceService {
 					}
 
 					AVObject articleInfo = fetchArticleInfo.getArticleInfo();
-					logger.debug("article title image size：{}", fetchArticleInfo.getTitleImageUrls().size());
 					articleInfo.put("titlePicObjArr", fetchArticleInfo.getTitleImageUrls());
 					articleInfo.put("attr", 1); // 0文字新闻 1图片新闻 2视频新闻 3 连接新闻 4H5游戏新闻 5竞猜新闻 6游戏新闻
 					if (fetchArticleInfo.getContentImageUrls().size() > 0) {
 						articleInfo.put("contentPicObjArr", fetchArticleInfo.getContentImageUrls());
 					}
+					logger.info("<============================test new article 2============================>");
 					String articleId = conArticleDao.saveConArticle(articleInfo);
 					if (StringUtil.isNotEmpty(articleId)) {
 						conArticleContentDao.saveArticleContent(articleId, fetchArticleInfo.getArticleContent());
@@ -260,13 +276,8 @@ public class FetchArticleResourceService {
 					}
 				}
 			} else {
-				// 继续加入文章"待上传"队列
-				try {
-					Constants.FETCH_ARTICLE_MEDIA_QUEUE.put(fetchArticleInfo);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					logger.warn("re add upload queue，cause: {}", e);
-				}
+				// 继续下载文章的剩余图片
+				fetchArticleInfoResource(fetchArticleInfo);
 			}
 		}
 	}

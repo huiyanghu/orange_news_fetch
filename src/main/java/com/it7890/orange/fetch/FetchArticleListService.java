@@ -3,11 +3,8 @@ package com.it7890.orange.fetch;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,42 +61,39 @@ public class FetchArticleListService {
 
 	private ExecutorService startExecutor;
 	private ExecutorService searchExecutor;
-	private AtomicInteger atomicSearchSum;
-	private AtomicInteger checkingSources;
+
+	private ConcurrentMap<String, String> concurrentSearchMap;
 
 	private Semaphore limit;
 	
 	public FetchArticleListService() {
 		this.startExecutor = Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory("startExecutor"));
 		this.searchExecutor = Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory("searchExecutor"));
-		atomicSearchSum = new AtomicInteger(0);
-		checkingSources = new AtomicInteger(0);
+		concurrentSearchMap = new ConcurrentHashMap<>();
 	}
 
 	@PostConstruct
 	public void init() {
-		buildWaitGrabListRules();
+		this.startExecutor.execute(new Runnable() {
+			@Override
+			public void run() {
+				while (true) {
+					if (Thread.currentThread().isInterrupted()) {
+						return;
+					}
 
-//		this.startExecutor.execute(new Runnable() {
-//			@Override
-//			public void run() {
-//				while (true) {
-//					if (Thread.currentThread().isInterrupted()) {
-//						return;
-//					}
-//
-//					buildWaitGrabListRules();
-//
-//					try {
-//						logger.info("FetchArticleListService task sleep!!!");
-//						Thread.sleep(Constants.SLEEP_MILLIS);
-//					} catch (InterruptedException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
-//			}
-//		});
+					buildWaitGrabListRules();
+
+					try {
+						logger.warn("FetchArticleListService task sleep!!!");
+						Thread.sleep(Constants.SLEEP_MILLIS);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+		});
 
 		this.limit = new Semaphore(tpConfig.getSpiderConn());
 		this.searchExecutor.execute(new Runnable() {
@@ -133,26 +127,26 @@ public class FetchArticleListService {
 			return;
 		}
 
-		logger.info(" check new url search");
 		final String siteUrl = grabListRuleInfo.getSiteUrl();
 		if (siteUrl.toLowerCase().startsWith("https://")) {
 			Connection conn = Jsoup.connect(siteUrl);
-			conn.userAgent(UserAgentUtil.getUserAgent());
+			conn.userAgent(Constants.USER_AGENT);
 			conn.validateTLSCertificates(false);
 			conn.ignoreContentType(true);
 			conn.ignoreHttpErrors(true);
-			conn.timeout(50 * 1000);
+			conn.timeout(30 * 1000);
+			Document document = null;
 			try {
-				Document document = conn.get();
+				document = conn.get();
 				analysisArticleList(document, grabListRuleInfo, siteUrl);
 
 			} catch (IOException e) {
 				e.printStackTrace();
-				logger.error("FetchArticleListService urlSearch exception，cause: {}", e);
+				logger.error("FetchArticleListService urlSearch exception，cause: {}, url: {}", e, siteUrl);
 			}
 			finally {
 				limit.release();
-				atomicSearchSum.incrementAndGet();
+				concurrentSearchMap.remove(siteUrl);
 			}
 		} else {
 			SpiderUrl fetchUrl = SpiderUrlUtil.buildSpiderUrl(siteUrl);
@@ -172,14 +166,13 @@ public class FetchArticleListService {
 						} else {
 							logger.warn(" fetch-->proxy failed,proxy:{},status:{},cause:{}", new Object[]{furl.getFetchProxy(), fd.getStatusCode(), fd.getCause()});
 						}
-						atomicSearchSum.incrementAndGet();
+						concurrentSearchMap.remove(siteUrl);
 						return;
 					}
-					logger.debug("fetch result: {}, {}", new Object[]{furl, fd});
 					String body = fd.getBody();
 					Document document = Jsoup.parse(body);
 					analysisArticleList(document, grabListRuleInfo, siteUrl);
-					atomicSearchSum.incrementAndGet();
+					concurrentSearchMap.remove(siteUrl);
 				}
 
 				@Override
@@ -199,6 +192,7 @@ public class FetchArticleListService {
 	 * 解析文章列表
 	 * @param doc
 	 * @param grabListRulInfo
+	 * @param siteUrl
 	 */
 	private void analysisArticleList(Document doc, GrabListRule grabListRulInfo, String siteUrl) {
 		if (null != doc && null != grabListRulInfo && StringUtil.isNotEmpty(siteUrl)) {
@@ -278,9 +272,6 @@ public class FetchArticleListService {
 					String articleDetailUrl = articleElement.attr("href");
 					articleDetailUrl = HtmlUtil.getRemoteUrl(siteUrl, articleDetailUrl);
 
-					logger.debug("article list url：{}", siteUrl);
-					logger.debug("article url：{}", articleDetailUrl);
-
 					List<String> titleImageUrls = new ArrayList<>();
 					if (StringUtil.isNotEmpty(grabListRulInfo.getTitlePicCssPath())) {
 						Elements imgEles = articleElement.select(grabListRulInfo.getTitlePicCssPath());
@@ -308,7 +299,8 @@ public class FetchArticleListService {
 				logger.debug("next page url ====================>>>>{}", nextUrl);
 				try {
 					grabListRulInfo.setSiteUrl(nextUrl);
-					checkingSources.incrementAndGet();
+					concurrentSearchMap.put(nextUrl, nextUrl);
+					logger.warn("============================>put url: {}, size: {}", nextUrl, concurrentSearchMap.size());
 					Constants.FETCH_LIST_RULE_QUEUE.put(grabListRulInfo);
 					logger.debug("join in fetch query，url: {}", nextUrl);
 				} catch (InterruptedException e) {
@@ -351,14 +343,15 @@ public class FetchArticleListService {
 	 * 构建待抓取列表规则
 	 */
 	private void buildWaitGrabListRules() {
-		checkingSources.set(0);
-		atomicSearchSum.set(0);
+		concurrentSearchMap.clear();
+		logger.warn("============================>clear map");
 		List<AVObject> grabDetailRules = grabDetailRuleDao.findGrabDetailRules();
 		List<AVObject> grabListRules = grabListRuleDao.findGrabListRules();
 		logger.info("grabListRules: {},   grabDetailRules: {}", grabListRules.size(), grabDetailRules.size());
 
 		GrabDetailRule grabDetailRule;
 		GrabListRule grabListRule;
+		String siteUrl = "";
 
 		AVObject tempGrabListRuleObj;
 		for (AVObject grabDetailRuleObj : grabDetailRules) {
@@ -380,6 +373,7 @@ public class FetchArticleListService {
 			grabDetailRule.setTestUrl(StringUtil.isNotEmpty(grabDetailRuleObj.getString("testUrl")) ? grabDetailRuleObj.getString("testUrl").trim() : "");
 
 			grabListRule = null;
+			siteUrl = "";
 			for (AVObject grabListRuleObj : grabListRules) {
 				if (tempGrabListRuleObj.getObjectId().equals(grabListRuleObj.getObjectId())) {
 					AVObject publicationObj = grabListRuleObj.getAVObject("publicationObj");
@@ -388,7 +382,7 @@ public class FetchArticleListService {
 					AVObject languageObj = grabListRuleObj.getAVObject("languageObj");
 					AVObject topicObj = grabListRuleObj.getAVObject("topicObj");
 					AVObject countryObj = grabListRuleObj.getAVObject("countryObj");
-					String siteUrl = grabListRuleObj.getString("siteUrl");
+					siteUrl = grabListRuleObj.getString("siteUrl");
 
 					if (StringUtil.isEmpty(siteUrl) || null == publicationObj || null == nodeObj || null == channelObj || null == languageObj || null == topicObj || null == countryObj || StringUtil.isEmpty(countryObj.getString("countryCode"))) {
 						continue;
@@ -428,8 +422,9 @@ public class FetchArticleListService {
 			if (null != grabListRule) {
 				grabListRule.setGrabDetailRule(grabDetailRule);
 				try {
+					concurrentSearchMap.put(siteUrl, siteUrl);
+					logger.warn("============================>put url: {}, size: {}", siteUrl, concurrentSearchMap.size());
 					Constants.FETCH_LIST_RULE_QUEUE.put(grabListRule);
-					checkingSources.incrementAndGet();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 					logger.warn("waitFetchGrabListQueue put cause: {}", e);
@@ -438,20 +433,19 @@ public class FetchArticleListService {
 		}
 
 
-//		while (true) {
-//			logger.info("atomicSearchSum value: {}, checkingSources value: {}", atomicSearchSum.intValue(), checkingSources.intValue());
-//			if (atomicSearchSum.intValue() == checkingSources.intValue()) {
-//				logger.info("search sleep!!");
-//				break;
-//			}
-//
-//
-//			try {
-//				Thread.sleep(1000 * 10);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
+		while (true) {
+			logger.warn("concurrentSearchMap.size: {}", concurrentSearchMap.size());
+			if (concurrentSearchMap.size() == 0) {
+				logger.info("search sleep!!");
+				break;
+			}
+
+			try {
+				Thread.sleep(1000 * 10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 }
