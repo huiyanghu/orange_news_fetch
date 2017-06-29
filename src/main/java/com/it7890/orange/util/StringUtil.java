@@ -30,9 +30,7 @@ import org.springframework.web.bind.ServletRequestUtils;
 public class StringUtil extends StringUtils {
 
 	static Log log = LogFactory.getLog(StringUtil.class);
-	public static void main(String[] args) {
-		System.out.println(StringUtil.isNAN("3.2.57"));
-	}
+
     // 将字符串转移为ASCII码
     public static String getCnASCII(String cnStr) {
         StringBuffer strBuf = new StringBuffer();
@@ -161,7 +159,7 @@ public class StringUtil extends StringUtils {
 	/**
 	 * 根据提供的参数，生成md5值</br>
 	 * 会对传过来的值用UTF-8方式编码
-	 * @param source
+	 * @param ss
 	 * @return	正常的字符串，出错会返回null
 	 */
 
@@ -987,19 +985,24 @@ public class StringUtil extends StringUtils {
 		}
 	}
 
-	public static String urlEncode(String originTitleImageUrl) {
-		if (StringUtil.isNotEmpty(originTitleImageUrl)) {
-			String resourceName = originTitleImageUrl.substring(originTitleImageUrl.lastIndexOf('/')+1, originTitleImageUrl.lastIndexOf('.'));
-			try {
-				if (!isUtf8Url(resourceName)) {
-					String newResourceName = URLEncoder.encode(resourceName, "UTF-8");
-					originTitleImageUrl = originTitleImageUrl.replace(resourceName, newResourceName);
+	public static String urlEncode(String originImageUrl) {
+		String newOriginImageUrl = "";
+		if (StringUtil.isNotEmpty(originImageUrl)) {
+			int startIndex = originImageUrl.lastIndexOf('/')+1;
+			int endIndex = originImageUrl.lastIndexOf('.');
+			if (startIndex < endIndex) {
+				String resourceName = originImageUrl.substring(startIndex, endIndex);
+				try {
+					if (!isUtf8Url(resourceName)) {
+						String newResourceName = URLEncoder.encode(resourceName, "UTF-8");
+						newOriginImageUrl = originImageUrl.replace(resourceName, newResourceName);
+					}
+				} catch (UnsupportedEncodingException e) {
+					e.printStackTrace();
 				}
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
 			}
 		}
-		return originTitleImageUrl;
+		return newOriginImageUrl;
 	}
 
 	/**

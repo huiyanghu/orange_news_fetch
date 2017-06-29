@@ -217,21 +217,27 @@ public class FetchArticleDetailService {
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
 										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 										contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-										contentImageUrls.add(contentImageUrl);
+										if (StringUtil.isNotEmpty(contentImageUrl)) {
+											contentImageUrls.add(contentImageUrl);
+										}
 										continue;
 									}
 									contentImageUrl = imgEle.attr("data-url");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
 										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 										contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-										contentImageUrls.add(contentImageUrl);
+										if (StringUtil.isNotEmpty(contentImageUrl)) {
+											contentImageUrls.add(contentImageUrl);
+										}
 										continue;
 									}
 									contentImageUrl = imgEle.attr("src");
 									if (StringUtil.isNotEmpty(contentImageUrl)) {
 										contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 										contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-										contentImageUrls.add(contentImageUrl);
+										if (StringUtil.isNotEmpty(contentImageUrl)) {
+											contentImageUrls.add(contentImageUrl);
+										}
 									}
 								}
 							}
@@ -269,21 +275,27 @@ public class FetchArticleDetailService {
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
 									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-									contentImageUrls.add(contentImageUrl);
+									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrls.add(contentImageUrl);
+									}
 									continue;
 								}
 								contentImageUrl = imgEle.attr("data-url");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
 									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-									contentImageUrls.add(contentImageUrl);
+									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrls.add(contentImageUrl);
+									}
 									continue;
 								}
 								contentImageUrl = imgEle.attr("src");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
 									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-									contentImageUrls.add(contentImageUrl);
+									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrls.add(contentImageUrl);
+									}
 								}
 							}
 							logger.info("article content image urls>>>：{}", contentImageUrls);
@@ -321,21 +333,27 @@ public class FetchArticleDetailService {
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
 									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-									contentImageUrls.add(contentImageUrl);
+									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrls.add(contentImageUrl);
+									}
 									continue;
 								}
 								contentImageUrl = imgEle.attr("data-url");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
 									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-									contentImageUrls.add(contentImageUrl);
+									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrls.add(contentImageUrl);
+									}
 									continue;
 								}
 								contentImageUrl = imgEle.attr("src");
 								if (StringUtil.isNotEmpty(contentImageUrl)) {
 									contentImageUrl = HtmlUtil.getRemoteUrl(fetchUrl, contentImageUrl);
 									contentImageUrl = StringUtil.urlEncode(contentImageUrl);
-									contentImageUrls.add(contentImageUrl);
+									if (StringUtil.isNotEmpty(contentImageUrl)) {
+										contentImageUrls.add(contentImageUrl);
+									}
 								}
 							}
 							logger.info("article image urls>>>：{}", contentImageUrls);
